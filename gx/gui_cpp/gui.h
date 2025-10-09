@@ -160,4 +160,46 @@ protected:
     UpdateCallback updateCB;
 };
 
+//! Image data handler (PNG loading)
+class GuiImageData
+{
+public:
+    GuiImageData(const u8 * img);
+    ~GuiImageData();
+    u8 * GetImage();
+    int GetWidth();
+    int GetHeight();
+    
+protected:
+    u8 * data;
+    int width;
+    int height;
+};
+
+//! Image display element
+class GuiImage : public GuiElement
+{
+public:
+    GuiImage(GuiImageData * img);
+    GuiImage(int w, int h, GXColor c);
+    ~GuiImage();
+    void SetImage(GuiImageData * img);
+    void SetAngle(float a);
+    void SetTile(int t);
+    GXColor GetPixel(int x, int y);
+    void SetPixel(int x, int y, GXColor color);
+    void SetStripe(int s);
+    void ColorStripe(int s);
+    
+    void Draw();
+    
+protected:
+    int imgType;
+    u8 * image;
+    GuiImageData * imageData;
+    int tile;
+    float imageangle;
+    int stripe;
+};
+
 #endif // _GUICPP_H_
