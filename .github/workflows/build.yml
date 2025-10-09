@@ -60,31 +60,13 @@ jobs:
       if: ${{ matrix.image == 'GameCube' }}
       run: |
         make -f Makefile.gc -j1
-      continue-on-error: true
         
-    - name: Copy GameCube artifact
-      if: ${{ matrix.image == 'GameCube' }}
-      run: |
-        mkdir -p dist/GenesisPlusGX-GameCube
-        cp genplus_cube.dol dist/GenesisPlusGX-GameCube/ 2>/dev/null || echo "Build failed, no .dol file"
-      continue-on-error: true
-    
-    - name: Zip artifacts
-      run: |
-        cd dist/GenesisPlusGX
-        rm -r genplusgx/cheats/*
-        rm -r genplusgx/roms/*
-        rm -r genplusgx/saves/*
-        zip -r ../GenesisPlusGX.zip *
-        cd ../GenesisPlusGX-GameCube
-        zip -r ../GenesisPlusGX-GameCube.zip *
-
     - name: Upload GameCube artifact
       uses: actions/upload-artifact@v4
       if: ${{ matrix.image == 'GameCube' }}
       with:
         name: GenesisPlusGX-GameCube
-        path: dist/GenesisPlusGX/
+        path: genplus_cube.dol
 
 
   release:
