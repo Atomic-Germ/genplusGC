@@ -7,6 +7,15 @@
 #include <sstream>
 #include <cstring>
 
+// For isatty() to detect if output is a terminal
+#ifdef _WIN32
+    #include <io.h>
+    #define isatty _isatty
+    #define fileno _fileno
+#else
+    #include <unistd.h>
+#endif
+
 /**
  * Simple lightweight testing framework for Genesis Plus GX
  * Based on the snes9xGC/fceuGC test framework pattern
@@ -70,6 +79,13 @@ public:
     }
     
     int runTests() {
+        // Check if output is a TTY (terminal) or being redirected
+        bool useColors = isatty(fileno(stdout));
+        
+        const char* green = useColors ? "\033[32m" : "";
+        const char* red = useColors ? "\033[31m" : "";
+        const char* reset = useColors ? "\033[0m" : "";
+        
         std::cout << "\n========================================" << std::endl;
         std::cout << "Genesis Plus GX Test Suite" << std::endl;
         std::cout << "========================================\n" << std::endl;
@@ -89,20 +105,20 @@ public:
                 test->run();
                 
                 if (currentTest_.passed) {
-                    std::cout << "\033[32mPASSED\033[0m" << std::endl;
+                    std::cout << green << "PASSED" << reset << std::endl;
                     passedTests++;
                 } else {
-                    std::cout << "\033[31mFAILED\033[0m" << std::endl;
+                    std::cout << red << "FAILED" << reset << std::endl;
                     std::cout << "  " << currentTest_.file << ":" << currentTest_.line << std::endl;
                     std::cout << "  " << currentTest_.failureMessage << std::endl;
                     failedTests++;
                 }
             } catch (const std::exception& e) {
-                std::cout << "\033[31mEXCEPTION\033[0m" << std::endl;
+                std::cout << red << "EXCEPTION" << reset << std::endl;
                 std::cout << "  " << e.what() << std::endl;
                 failedTests++;
             } catch (...) {
-                std::cout << "\033[31mUNKNOWN EXCEPTION\033[0m" << std::endl;
+                std::cout << red << "UNKNOWN EXCEPTION" << reset << std::endl;
                 failedTests++;
             }
         }
@@ -110,8 +126,8 @@ public:
         std::cout << "\n========================================" << std::endl;
         std::cout << "Test Results:" << std::endl;
         std::cout << "  Total:  " << totalTests << std::endl;
-        std::cout << "  Passed: \033[32m" << passedTests << "\033[0m" << std::endl;
-        std::cout << "  Failed: \033[31m" << failedTests << "\033[0m" << std::endl;
+        std::cout << "  Passed: " << green << passedTests << reset << std::endl;
+        std::cout << "  Failed: " << red << failedTests << reset << std::endl;
         std::cout << "========================================\n" << std::endl;
         
         return (failedTests == 0) ? 0 : 1;
