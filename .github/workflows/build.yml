@@ -61,18 +61,13 @@ jobs:
       run: |
         make -f Makefile.gc -j1
     
-    - name: Copy GameCube artifacts
-      if: ${{ matrix.image == 'GameCube' }}
-      run: |
-        mkdir -p dist/GenesisPlusGX-GameCube/
-        cp genplus_gc.dol dist/GenesisPlusGX/GenesisPlusGX-GameCube/genplus_cube.dol
 
     - name: Upload GameCube artifact
       uses: actions/upload-artifact@v4
       if: ${{ matrix.image == 'GameCube' }}
       with:
         name: GenesisPlusGX-GameCube
-        path: dist/GenesisPlusGX-GameCube/genplus_cube.dol
+        path: genplus_cube.dol
 
 
   release:
