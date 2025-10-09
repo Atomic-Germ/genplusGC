@@ -1,5 +1,34 @@
 
 ---------------------------------------------------------------------------------------------------------
+Genesis Plus GX 1.7.5-GC/Wii Refactor (2024) (GameCube/Wii Focused Fork)
+---------------------------------------------------------------------------------------------------------
+
+[Refactoring - Phase 1]
+---------------
+* removed all non-GameCube/Wii platform code (~2MB, 129 files)
+  - Removed libretro/ (RetroArch port)
+  - Removed sdl/ (SDL1/SDL2 ports)
+  - Removed psp2/ (PS Vita port)
+  - Removed gcw0/ (GCW Zero port)
+  - Removed builds/ directory
+  - Removed Makefile.libretro
+* cleaned up platform-specific #ifdef blocks in core (LIBRETRO references)
+* updated documentation to reflect GameCube/Wii exclusive focus
+* created PLATFORMS.md documenting GC/Wii technical details
+* created BUILDING.md with comprehensive build instructions
+* created refactoring documentation (REFACTORING_PLAN.md, REFACTORING_SUMMARY.md)
+* established baseline for focused GameCube/Wii optimization
+
+This is the beginning of a comprehensive refactoring to create a modern, optimized
+emulator specifically for GameCube and Wii hardware. Future phases will include:
+- C++ GUI system based on snes9xGC/fceuGC architecture
+- Unit testing framework with CI integration
+- Memory and performance optimizations
+- Bug fixes and quality improvements
+
+See REFACTORING_PLAN.md for complete roadmap.
+
+---------------------------------------------------------------------------------------------------------
 Genesis Plus GX 1.7.5 (xx/xx/xxxx) (Eke-Eke)
 ---------------------------------------------------------------------------------------------------------
 
@@ -134,7 +163,7 @@ Genesis Plus GX 1.7.5 (xx/xx/xxxx) (Eke-Eke)
 * improved accuracy of Master System color palette brightness range (verified against real hardware)
 * fixed misaligned buffer writes in Mode 4 when -DALIGN_LONG option is used
 * fixed alpha channel for 15-bit (RGB555) and 32-bit (RGB888) color support
-* fixed register #10 state on VDP¨reset (fixes GG Terminator 2: Judgment Day)
+* fixed register #10 state on VDPï¿½reset (fixes GG Terminator 2: Judgment Day)
 * fixed Mode 1 rendering (TMS99xx "text" mode)
 * fixed Master System II extended video modes sprite parsing (fixes Mega Man 2 demo)
 * fixed Game Gear display rendering regression when left/right borders were disabled

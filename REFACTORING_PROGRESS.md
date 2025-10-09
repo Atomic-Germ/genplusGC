@@ -61,14 +61,14 @@ Phase 9: Release Prep   [░░░░░░░░░░] 0%
 - [ ] Binary size reduced
 
 ### 1.3 Documentation Update (1 day)
-- [ ] Update `README.md`
-- [ ] Update build instructions
-- [ ] Document removed platforms
-- [ ] Create `PLATFORMS.md`
-- [ ] Create `BUILDING.md`
-- [ ] Update `HISTORY.txt`
+- [x] Update `README.md` - Focus on GC/Wii, remove multi-platform references
+- [x] Update build instructions for GC/Wii only
+- [x] Document removed platforms with rationale  
+- [x] Create `PLATFORMS.md` - Detailed GC/Wii platform information
+- [x] Create `BUILDING.md` - Comprehensive build guide
+- [x] Update `HISTORY.txt` with refactoring notes
 
-**Phase 1 Complete:** ⬜
+**Phase 1 Complete:** ⏳ (Pending CI verification)
 
 ---
 
