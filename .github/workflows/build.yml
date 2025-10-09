@@ -29,7 +29,7 @@ jobs:
     - name: Build Wii
       if: ${{ matrix.image == 'Wii' }}
       run: |
-        make -f Makefile.wii -j2
+        make -f Makefile.wii -j1
       # Don't cancel workflow if this step fails, as GameCube build may still succeed
       continue-on-error: true
 
@@ -60,13 +60,19 @@ jobs:
       if: ${{ matrix.image == 'GameCube' }}
       run: |
         make -f Makefile.gc -j1
-        
+    
+    - name: Copy GameCube artifacts
+      if: ${{ matrix.image == 'GameCube' }}
+      run: |
+        mkdir -p dist/GenesisPlusGX-GameCube/
+        cp genplus_gc.dol dist/GenesisPlusGX/GenesisPlusGX-GameCube/genplus_cube.dol
+
     - name: Upload GameCube artifact
       uses: actions/upload-artifact@v4
       if: ${{ matrix.image == 'GameCube' }}
       with:
         name: GenesisPlusGX-GameCube
-        path: genplus_cube.dol
+        path: dist/GenesisPlusGX-GameCube/genplus_cube.dol
 
 
   release:
