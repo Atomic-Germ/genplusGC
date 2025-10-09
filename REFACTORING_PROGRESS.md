@@ -169,8 +169,8 @@ See [PHASE1_SUMMARY.md](PHASE1_SUMMARY.md) for detailed completion report.
 ## Phase 3: GUI Foundation (Week 3-4)
 
 **Target Duration:** 7 days  
-**Actual Duration:** _____________  
-**Status:** ⬜ Not Started | ⏳ In Progress | ✅ Complete
+**Actual Duration:** In Progress  
+**Status:** ⏳ In Progress
 
 ### 3.1 Architecture Planning (1 day)
 - [ ] Review snes9xGC architecture
@@ -179,8 +179,8 @@ See [PHASE1_SUMMARY.md](PHASE1_SUMMARY.md) for detailed completion report.
 - [ ] Document integration points
 
 ### 3.2 Base Classes (5 days)
-- [ ] Create `gx/gui/gui.h`
-- [ ] Implement `gui_element.cpp` (GuiElement)
+- [ ] Create `gx/gui/gui.h` (master header)
+- [ ] Implement `gui_element.cpp` (GuiElement base class)
 - [ ] Implement `gui_window.cpp` (GuiWindow)
 - [ ] Implement `gui_imagedata.cpp` (GuiImageData)
 - [ ] Implement `gui_image.cpp` (GuiImage)
