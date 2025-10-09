@@ -23,7 +23,7 @@
 #include "asm_arm.h"
 #include <stdlib.h> /* for abs() */
   
-#if defined(GEKKO) && !defined(__LIBRETRO__)
+#ifdef GEKKO
 #include <gctypes.h>
 #endif
   
