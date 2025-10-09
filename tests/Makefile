@@ -64,13 +64,13 @@ tests: $(TEST_EXECUTABLE)
 .PHONY: run
 run: tests
 	@echo "\n$(YELLOW)Running tests...$(RESET)\n"
-	@./$(TEST_EXECUTABLE) && echo "\n$(GREEN)All tests passed!$(RESET)" || (echo "\n$(RED)Tests failed!$(RESET)" && exit 1)
+	@./$(TEST_EXECUTABLE) | tee test-results.txt && echo "\n$(GREEN)All tests passed!$(RESET)" || (echo "\n$(RED)Tests failed!$(RESET)" && exit 1)
 
 # Clean build artifacts
 .PHONY: clean
 clean:
 	@echo "$(YELLOW)Cleaning build artifacts...$(RESET)"
-	@rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR) test-results.txt
 	@echo "$(GREEN)Clean complete$(RESET)"
 
 # Rebuild everything

@@ -104,15 +104,18 @@ See [PHASE1_SUMMARY.md](PHASE1_SUMMARY.md) for detailed completion report.
 - [x] `make run` works
 
 ### 2.2 CI Pipeline Updates (1 day)
-- [ ] Add unit test job to `.github/workflows/build.yml`
-- [ ] Create `.github/workflows/test.yml`
-- [ ] Configure artifact uploads
-- [ ] Test CI integration
+- [x] Add unit test job to `.github/workflows/build.yml`
+- [x] Create `.github/workflows/test.yml` (dedicated test workflow)
+- [x] Configure test artifact uploads
+- [x] Update tests/Makefile to output results file
+- [x] Test CI integration locally
 
 **Verification:**
-- [ ] Tests run in CI
-- [ ] Failed tests prevent builds
-- [ ] Artifacts uploaded
+- [x] Tests run in CI before builds
+- [ ] Failed tests prevent builds (will verify after push)
+- [x] Test artifacts configured for upload
+- [x] Multi-OS testing (Ubuntu, macOS)
+- [x] Multi-compiler testing (g++, clang++)
 
 ### 2.3 Initial Test Coverage (2 days)
 - [ ] Create `test_config.cpp`

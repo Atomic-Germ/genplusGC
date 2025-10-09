@@ -3,6 +3,7 @@ build/
 *.o
 *.d
 test_runner
+test-results.txt
 
 # Coverage reports
 *.gcov
