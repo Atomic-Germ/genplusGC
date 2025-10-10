@@ -6,7 +6,8 @@ CXXFLAGS := -O2 -Wall -Wextra -fno-exceptions -fno-rtti -std=c++11
 CXXFLAGS += -I$(DEVKITPRO)/libogc/include
 
 SOURCES := gui_element.cpp gui_trigger.cpp gui_sound.cpp \
-           gui_imagedata.cpp gui_image.cpp
+           gui_imagedata.cpp gui_image.cpp \
+           gui_text.cpp gui_window.cpp
 OBJECTS := $(SOURCES:.cpp=.o)
 
 .PHONY: all clean test

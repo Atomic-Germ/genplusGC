@@ -39,6 +39,18 @@ enum { SOUND_PCM, SOUND_OGG };
 enum { IMAGE_TEXTURE, IMAGE_COLOR, IMAGE_DATA };
 enum { TRIGGER_SIMPLE, TRIGGER_HELD, TRIGGER_BUTTON_ONLY, TRIGGER_BUTTON_ONLY_IN_FOCUS };
 
+// Text scrolling
+enum { SCROLL_NONE, SCROLL_HORIZONTAL };
+
+// FreeTypeGX text styles (placeholder for future integration)
+#define FTGX_NULL               0x0000
+#define FTGX_JUSTIFY_LEFT       0x0001
+#define FTGX_JUSTIFY_CENTER     0x0002
+#define FTGX_JUSTIFY_RIGHT      0x0004
+#define FTGX_ALIGN_TOP          0x0010
+#define FTGX_ALIGN_MIDDLE       0x0020
+#define FTGX_ALIGN_BOTTOM       0x0040
+
 // Effects
 #define EFFECT_SLIDE_TOP        1
 #define EFFECT_SLIDE_BOTTOM     2
@@ -200,6 +212,78 @@ protected:
     int tile;
     float imageangle;
     int stripe;
+};
+
+//! Text rendering element
+class GuiText : public GuiElement
+{
+public:
+    GuiText(const char * t, int s, GXColor c);
+    GuiText(const char * t);
+    ~GuiText();
+    void SetText(const char * t);
+    void SetWText(wchar_t * t);
+    int GetLength();
+    static void SetPresets(int sz, GXColor c, int w, u16 s, int h, int v);
+    void SetFontSize(int s);
+    void SetMaxWidth(int w);
+    int GetTextWidth();
+    void SetScroll(int s);
+    void SetWrap(bool w, int width = 0);
+    void SetColor(GXColor c);
+    void SetStyle(u16 s);
+    void SetAlignment(int hor, int vert);
+    void ResetText();
+    
+    void Draw();
+    
+protected:
+    GXColor color;
+    wchar_t* text;
+    wchar_t *textDyn[20];
+    int textDynNum;
+    char * origText;
+    int size;
+    int maxWidth;
+    int textScroll;
+    int textScrollPos;
+    int textScrollInitialDelay;
+    int textScrollDelay;
+    u16 style;
+    bool wrap;
+};
+
+//! Window container for GUI elements
+class GuiWindow : public GuiElement
+{
+public:
+    GuiWindow();
+    GuiWindow(int w, int h);
+    ~GuiWindow();
+    void Append(GuiElement* e);
+    void Insert(GuiElement* e, u32 i);
+    void Remove(GuiElement* e);
+    void RemoveAll();
+    bool Find(GuiElement* e);
+    GuiElement* GetGuiElementAt(u32 i) const;
+    u32 GetSize();
+    void SetVisible(bool v);
+    void ResetState();
+    void SetState(int s);
+    int GetSelected();
+    void SetFocus(int f);
+    void ChangeFocus(GuiElement * e);
+    void ToggleFocus(GuiTrigger * t);
+    void MoveSelectionHor(int d);
+    void MoveSelectionVert(int d);
+    void ResetText();
+    
+    void Draw();
+    void DrawTooltip();
+    void Update(GuiTrigger * t);
+    
+protected:
+    std::vector<GuiElement*> _elements;
 };
 
 #endif // _GUICPP_H_

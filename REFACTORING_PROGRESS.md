@@ -13,7 +13,7 @@
 
 Phase 1: Foundation     [██████████] 100% ✅
 Phase 2: Unit Testing   [██████████] 100% ✅
-Phase 3: GUI Foundation [████░░░░░░] 40%
+Phase 3: GUI Foundation [██████░░░░] 60%
 Phase 4: GUI Widgets    [░░░░░░░░░░] 0%
 Phase 5: Menu System    [░░░░░░░░░░] 0%
 Phase 6: Testing & QA   [░░░░░░░░░░] 0%
@@ -210,10 +210,14 @@ See [PHASE1_SUMMARY.md](PHASE1_SUMMARY.md) for detailed completion report.
   - [x] Test compilation with devkitPPC
   - [x] Zero warnings, clean compile
 
-- [ ] **Day 3: Text & Windows**
-  - [ ] Implement GuiText
-  - [ ] Implement GuiWindow
-  - [ ] Test text rendering
+- [x] **Day 3: Text & Windows**
+  - [x] Implement GuiText - 305 lines
+  - [x] Implement GuiWindow - 253 lines
+  - [x] Update gui.h with class declarations - ~80 lines added
+  - [x] Test compilation with devkitPPC
+  - [x] Zero warnings, clean compile
+  - [x] Text scrolling & wrapping structure ready
+  - [x] Window container with element management
 
 - [ ] **Day 4: Interaction**
   - [ ] Implement GuiButton
@@ -226,7 +230,8 @@ See [PHASE1_SUMMARY.md](PHASE1_SUMMARY.md) for detailed completion report.
 
 **Day 1 Complete:** ✅
 **Day 2 Complete:** ✅
-**Status:** Image handling classes implemented and tested
+**Day 3 Complete:** ✅
+**Status:** Text & Window classes implemented and tested
 
 **Verification per class:**
 - [ ] Compiles without errors
