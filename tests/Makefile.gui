@@ -1,0 +1,67 @@
+# GUI C++ Compilation Test Makefile
+# Tests that GUI classes compile with PowerPC headers
+
+# Compiler (use local devkitPPC if available, otherwise system g++)
+DEVKITPRO_LOCAL := ../devkitpro
+DEVKITPPC_LOCAL := $(DEVKITPRO_LOCAL)/devkitPPC
+
+ifneq ($(wildcard $(DEVKITPPC_LOCAL)/bin/powerpc-eabi-g++),)
+    CXX := $(DEVKITPPC_LOCAL)/bin/powerpc-eabi-g++
+    INCLUDE_DIRS := -I$(DEVKITPRO_LOCAL)/libogc/include
+    TEST_MODE := powerpc
+else
+    CXX := g++
+    INCLUDE_DIRS := -I./mocks/powerpc
+    TEST_MODE := mock
+endif
+
+# Flags
+CXXFLAGS := -std=c++11 -Wall -Wextra -Werror
+CXXFLAGS += -fno-exceptions -fno-rtti
+CXXFLAGS += $(INCLUDE_DIRS)
+CXXFLAGS += -I../gx/gui_cpp
+CXXFLAGS += -I../gx
+CXXFLAGS += -I../core
+
+# GUI source files
+GUI_DIR := ../gx/gui_cpp
+GUI_SOURCES := \
+    $(GUI_DIR)/gui_element.cpp \
+    $(GUI_DIR)/gui_trigger.cpp \
+    $(GUI_DIR)/gui_sound.cpp \
+    $(GUI_DIR)/gui_imagedata.cpp \
+    $(GUI_DIR)/gui_image.cpp \
+    $(GUI_DIR)/gui_text.cpp \
+    $(GUI_DIR)/gui_window.cpp \
+    $(GUI_DIR)/gui_button.cpp
+
+# Object files
+BUILD_DIR := build/gui_test
+GUI_OBJECTS := $(patsubst $(GUI_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(GUI_SOURCES))
+
+# Targets
+.PHONY: all clean test-compile info
+
+all: info test-compile
+
+info:
+	@echo "GUI Compilation Test"
+	@echo "===================="
+	@echo "Mode: $(TEST_MODE)"
+	@echo "Compiler: $(CXX)"
+	@echo "Include dirs: $(INCLUDE_DIRS)"
+	@echo ""
+
+test-compile: $(GUI_OBJECTS)
+	@echo "✅ All GUI classes compiled successfully!"
+
+$(BUILD_DIR):
+	@mkdir -p $(BUILD_DIR)
+
+$(BUILD_DIR)/%.o: $(GUI_DIR)/%.cpp | $(BUILD_DIR)
+	@echo "Compiling: $<"
+	@$(CXX) $(CXXFLAGS) -c $< -o $@ || (echo "❌ Failed: $<"; exit 1)
+
+clean:
+	@rm -rf $(BUILD_DIR)
+	@echo "Cleaned GUI test build"
