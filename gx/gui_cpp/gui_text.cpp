@@ -324,8 +324,10 @@ void GuiText::Draw()
     }
     textBuffer[len] = 0;
     
-    // DEBUG: Draw a red dot at position to verify Draw() is called
-    gxDrawRectangle(newLeft - 2, newTop - 2, 4, 4, 255, (GXColor){255, 0, 0, 255});
+    // DEBUG: Draw position info using colored rectangles
+    // Draw 10px wide bars at calculated positions to see what's happening
+    gxDrawRectangle(newLeft, newTop, 10, 4, 255, (GXColor){255, 0, 0, 255});  // Red bar at newLeft
+    gxDrawRectangle(320, newTop + 6, 10, 4, 255, (GXColor){0, 255, 0, 255}); // Green bar at expected center (320)
     
     // Use existing font system based on alignment
     if (alignmentHor == ALIGN_CENTRE)
