@@ -9,12 +9,12 @@
 ## Overall Progress
 
 ```
-[████████████████████████░░░░░░░░░░░░░░░░] 40%
+[████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 11%
 
 Phase 1: Foundation     [██████████] 100% ✅
-Phase 2: Unit Testing   [██████████] 100% ✅
-Phase 3: GUI Foundation [██████████] 100% ✅
-Phase 4: Hardware Integ [██████████] 100% ✅
+Phase 2: Unit Testing   [░░░░░░░░░░] 0%
+Phase 3: GUI Foundation [░░░░░░░░░░] 0%
+Phase 4: GUI Widgets    [░░░░░░░░░░] 0%
 Phase 5: Menu System    [░░░░░░░░░░] 0%
 Phase 6: Testing & QA   [░░░░░░░░░░] 0%
 Phase 7: Optimization   [░░░░░░░░░░] 0%
@@ -84,85 +84,48 @@ See [PHASE1_SUMMARY.md](PHASE1_SUMMARY.md) for detailed completion report.
 ## Phase 2: Unit Testing Infrastructure (Week 2)
 
 **Target Duration:** 5 days  
-**Actual Duration:** 1 session (~3 hours)
-**Status:** ✅ Complete
+**Actual Duration:** _____________  
+**Status:** ⬜ Not Started | ⏳ In Progress | ✅ Complete
 
 ### 2.1 Test Framework Setup (2 days)
-- [x] Create `tests/` directory structure
-- [x] Create `tests/framework/simple_test.h` (300+ lines)
-- [x] Create `tests/mocks/mock_libogc.h` (100+ lines)
-- [x] Create `tests/mocks/mock_libogc.cpp` (50+ lines)
-- [x] Create `tests/unit/test_main.cpp`
-- [x] Create `tests/unit/test_dummy.cpp` (7 tests)
-- [x] Create `tests/Makefile` (full featured)
-- [x] Create `tests/README.md` (comprehensive guide)
-- [x] Create `tests/.gitignore`
+- [ ] Create `tests/` directory structure
+- [ ] Create `tests/framework/simple_test.h`
+- [ ] Create `tests/mocks/mock_libogc.h`
+- [ ] Create `tests/mocks/mock_libogc.cpp`
+- [ ] Create `tests/unit/test_main.cpp`
+- [ ] Create `tests/unit/test_dummy.cpp`
+- [ ] Create `tests/Makefile`
+- [ ] Create `tests/README.md`
 
 **Verification:**
-- [x] Tests compile with g++
-- [x] Dummy tests run (7/7 passing)
-- [x] `make run` works
+- [ ] Tests compile with g++
+- [ ] Dummy tests run
+- [ ] `make run` works
 
 ### 2.2 CI Pipeline Updates (1 day)
-- [x] Add unit test job to `.github/workflows/build.yml`
-- [x] Create `.github/workflows/test.yml` (dedicated test workflow)
-- [x] Configure test artifact uploads
-- [x] Update tests/Makefile to output results file
-- [x] Test CI integration locally
+- [ ] Add unit test job to `.github/workflows/build.yml`
+- [ ] Create `.github/workflows/test.yml`
+- [ ] Configure artifact uploads
+- [ ] Test CI integration
 
 **Verification:**
-- [x] Tests run in CI before builds
-- [ ] Failed tests prevent builds (will verify after push)
-- [x] Test artifacts configured for upload
-- [x] Multi-OS testing (Ubuntu, macOS)
-- [x] Multi-compiler testing (g++, clang++)
+- [ ] Tests run in CI
+- [ ] Failed tests prevent builds
+- [ ] Artifacts uploaded
 
 ### 2.3 Initial Test Coverage (2 days)
-- [x] Create `test_fileop.cpp` (29 tests)
-- [x] Create `test_button_mapping.cpp` (32 tests)
-- [x] Create `test_video_mode.cpp` (30 tests)
-- [x] Framework tests in `test_dummy.cpp` (7 tests)
-- [x] Achieve 98 tests total (exceeds 50+ target!)
-
-**Test Breakdown:**
-- File operations: 29 tests
-  * Extension checking (8 tests)
-  * Device prefix handling (7 tests)
-  * Filename extraction (5 tests)
-  * Extension extraction (4 tests)
-  * Path validation (3 tests)
-  * Workflow integration (2 tests)
-
-- Button mapping: 32 tests
-  * GameCube controller (6 tests)
-  * Wii controllers (7 tests)
-  * Button masking (3 tests)
-  * Button states (4 tests)
-  * Combinations (4 tests)
-  * Directions (3 tests)
-  * Priority/values (5 tests)
-
-- Video modes: 30 tests
-  * Mode constants (4 tests)
-  * Mode structures (4 tests)
-  * Resolution (4 tests)
-  * Detection helpers (4 tests)
-  * Aspect ratio (3 tests)
-  * Compatibility (2 tests)
-  * Refresh rates (3 tests)
-  * Mode selection (4 tests)
-  * Origin/dimensions (2 tests)
-
-- Framework: 7 tests
+- [ ] Create `test_config.cpp`
+- [ ] Create `test_fileop.cpp`
+- [ ] Create `test_button_mapping.cpp`
+- [ ] Create `test_video_mode.cpp`
+- [ ] Achieve 50+ tests
 
 **Verification:**
-- [x] All 98 tests pass
-- [x] Coverage exceeds target (98 > 50)
-- [x] Tests run in <1 second
-- [x] No memory leaks
-- [x] All assertions working correctly
+- [ ] All tests pass
+- [ ] Coverage meets target
+- [ ] CI runs successfully
 
-**Phase 2 Complete:** ✅
+**Phase 2 Complete:** ⬜
 
 ---
 
