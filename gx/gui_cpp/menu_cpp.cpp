@@ -12,6 +12,7 @@
 extern "C" {
 #include "../gui/font.h"
 #include "../gx_video.h"
+#include "../gui_drawing.h"
 #include <ogc/video.h>
 }
 
@@ -22,8 +23,13 @@ extern void gxClearScreen(GXColor color);
 extern void gxSetScreen();
 }
 
-/* Dummy sound data - will use real PCM data later */
-static const u8 dummy_sound[] = {0};
+/* External sound data from gx/sounds/ */
+extern "C" {
+extern const u8 button_over_pcm[];
+extern const u32 button_over_pcm_size;
+extern const u8 button_select_pcm[];
+extern const u32 button_select_pcm_size;
+}
 
 /**
  * ShowMainMenu
@@ -71,34 +77,50 @@ int MenuMain()
 #endif
     
     /* Create sound effects */
-    GuiSound btnSoundOver(dummy_sound, sizeof(dummy_sound), SOUND_PCM);
-    GuiSound btnSoundClick(dummy_sound, sizeof(dummy_sound), SOUND_PCM);
+    GuiSound btnSoundOver(button_over_pcm, button_over_pcm_size, SOUND_PCM);
+    GuiSound btnSoundClick(button_select_pcm, button_select_pcm_size, SOUND_PCM);
+    
+    /* Create button background images (simple colored rectangles for now) */
+    GuiImageData btnImgData(200, 48, (GXColor){60, 60, 120, 255});   // Blue-gray button
+    GuiImageData btnImgOverData(200, 48, (GXColor){80, 80, 160, 255}); // Lighter when selected
     
     /* Load Game button */
+    GuiImage loadGameImg(&btnImgData);
+    GuiImage loadGameImgOver(&btnImgOverData);
     GuiText loadGameText("Load Game", 20, (GXColor){255, 255, 255, 255});
     GuiButton loadGameBtn(200, 48);
     loadGameBtn.SetAlignment(ALIGN_CENTRE, ALIGN_MIDDLE);
     loadGameBtn.SetPosition(0, -60);
+    loadGameBtn.SetImage(&loadGameImg);
+    loadGameBtn.SetImageOver(&loadGameImgOver);
     loadGameBtn.SetLabel(&loadGameText);
     loadGameBtn.SetTrigger(&trigA);
     loadGameBtn.SetSoundOver(&btnSoundOver);
     loadGameBtn.SetSoundClick(&btnSoundClick);
     
     /* Settings button */
+    GuiImage settingsImg(&btnImgData);
+    GuiImage settingsImgOver(&btnImgOverData);
     GuiText settingsText("Settings", 20, (GXColor){255, 255, 255, 255});
     GuiButton settingsBtn(200, 48);
     settingsBtn.SetAlignment(ALIGN_CENTRE, ALIGN_MIDDLE);
     settingsBtn.SetPosition(0, 0);
+    settingsBtn.SetImage(&settingsImg);
+    settingsBtn.SetImageOver(&settingsImgOver);
     settingsBtn.SetLabel(&settingsText);
     settingsBtn.SetTrigger(&trigA);
     settingsBtn.SetSoundOver(&btnSoundOver);
     settingsBtn.SetSoundClick(&btnSoundClick);
     
     /* Quit button */
+    GuiImage quitImg(&btnImgData);
+    GuiImage quitImgOver(&btnImgOverData);
     GuiText quitText("Exit", 20, (GXColor){255, 255, 255, 255});
     GuiButton quitBtn(200, 48);
     quitBtn.SetAlignment(ALIGN_CENTRE, ALIGN_MIDDLE);
     quitBtn.SetPosition(0, 60);
+    quitBtn.SetImage(&quitImg);
+    quitBtn.SetImageOver(&quitImgOver);
     quitBtn.SetLabel(&quitText);
     quitBtn.SetTrigger(&trigA);
     quitBtn.SetSoundOver(&btnSoundOver);
