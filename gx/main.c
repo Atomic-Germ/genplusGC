@@ -209,7 +209,22 @@ static void run_emulation(void)
     
     /* show menu */
     ConfigRequested = 0;
+    
+#ifdef USE_CPP_GUI
+    /* Use C++ GUI menu system */
+    extern int ShowMainMenu(void);
+    int menu_result = ShowMainMenu();
+    
+    /* Handle menu result */
+    if (menu_result == 1) /* MENU_EXIT */
+    {
+      /* User wants to exit */
+      ConfigRequested = 1;
+    }
+#else
+    /* Use original C menu system */
     mainmenu();
+#endif
 
     /* restart video & audio */
     gx_audio_Start();
