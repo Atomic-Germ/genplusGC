@@ -323,6 +323,9 @@ void GuiText::Draw()
     }
     textBuffer[len] = 0;
     
+    // DEBUG: Draw a red dot at position to verify Draw() is called
+    gxDrawRectangle(newLeft - 2, newTop - 2, 4, 4, 255, (GXColor){255, 0, 0, 255});
+    
     // Use existing font system based on alignment
     if (alignmentHor == ALIGN_CENTRE)
     {
