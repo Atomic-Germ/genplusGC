@@ -18,16 +18,16 @@ include $(DEVKITPPC)/gamecube_rules
 TARGET		:=	genplus_cube
 BUILD		:=	build_cube
 SOURCES		:=	core core/m68k core/z80 core/sound core/tremor core/ntsc core/input_hw core/cd_hw core/cart_hw core/cart_hw/svp \
-			gx gx/utils gx/gui gx/gui_cpp gx/fileio gx/images gx/sounds
+			gx gx/utils gx/gui gx/fileio gx/images gx/sounds
 INCLUDES	:=	core core/m68k core/z80 core/sound core/tremor core/ntsc core/input_hw core/cd_hw core/cart_hw core/cart_hw/svp \
-			gx gx/utils gx/gui gx/gui_cpp gx/fileio gx/images gx/sounds
+			gx gx/utils gx/gui gx/fileio gx/images gx/sounds
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
 CFLAGS  = -O3 -fomit-frame-pointer -Wall -Wno-strict-aliasing $(MACHDEP) $(INCLUDE) -DUSE_LIBTREMOR -DDISABLE_MANY_OGG_OPEN_FILES -DUSE_16BPP_RENDERING -DALT_RENDERER -DBLIP_INVERT
-CXXFLAGS	=	$(CFLAGS) -fno-exceptions -fno-rtti -std=c++11
+CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS	=	$(MACHDEP) -Wl,-Map,$(notdir $@).map
 
