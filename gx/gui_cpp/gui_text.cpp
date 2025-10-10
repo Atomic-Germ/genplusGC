@@ -287,7 +287,22 @@ void GuiText::Draw()
     
     int newSize = size * this->GetScale();
     
-    // TODO: Implement actual text rendering with FreeTypeGX
+    // Get position
+    int newLeft = this->GetLeft();
+    int newTop = this->GetTop();
+    
+    // TODO: Implement actual text rendering with FreeTypeGX or bitmap font
+    // For now, use GUI_DrawText placeholder
+    // GUI_DrawText(newLeft, newTop, text, newSize, tempColor);
+    
+    // Placeholder until we implement proper font rendering in Phase 5
+    (void)newLeft;
+    (void)newTop;
+    (void)newSize;
+    (void)tempColor;
+    
+    this->UpdateEffects();
+}
     // This will call FreeTypeGX rendering functions to draw the text
     // at the calculated position with proper alignment and effects
     
