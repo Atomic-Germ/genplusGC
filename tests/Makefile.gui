@@ -7,10 +7,12 @@ DEVKITPPC_LOCAL := $(DEVKITPRO_LOCAL)/devkitPPC
 
 ifneq ($(wildcard $(DEVKITPPC_LOCAL)/bin/powerpc-eabi-g++),)
     CXX := $(DEVKITPPC_LOCAL)/bin/powerpc-eabi-g++
+    CC := $(DEVKITPPC_LOCAL)/bin/powerpc-eabi-gcc
     INCLUDE_DIRS := -I$(DEVKITPRO_LOCAL)/libogc/include
     TEST_MODE := powerpc
 else
     CXX := g++
+    CC := gcc
     INCLUDE_DIRS := -I./mocks/powerpc
     TEST_MODE := mock
 endif
@@ -23,8 +25,14 @@ CXXFLAGS += -I../gx/gui_cpp
 CXXFLAGS += -I../gx
 CXXFLAGS += -I../core
 
+CFLAGS := -std=c11 -Wall -Wextra -Werror
+CFLAGS += $(INCLUDE_DIRS)
+CFLAGS += -I../gx
+CFLAGS += -I../core
+
 # GUI source files
 GUI_DIR := ../gx/gui_cpp
+GUI_C_FILES := ../gx/gui_drawing.c
 GUI_SOURCES := \
     $(GUI_DIR)/gui_element.cpp \
     $(GUI_DIR)/gui_trigger.cpp \
@@ -38,6 +46,7 @@ GUI_SOURCES := \
 # Object files
 BUILD_DIR := build/gui_test
 GUI_OBJECTS := $(patsubst $(GUI_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(GUI_SOURCES))
+GUI_C_OBJECTS := $(patsubst ../gx/%.c,$(BUILD_DIR)/%.o,$(GUI_C_FILES))
 
 # Targets
 .PHONY: all clean test-compile info
@@ -52,7 +61,7 @@ info:
 	@echo "Include dirs: $(INCLUDE_DIRS)"
 	@echo ""
 
-test-compile: $(GUI_OBJECTS)
+test-compile: $(GUI_OBJECTS) $(GUI_C_OBJECTS)
 	@echo "✅ All GUI classes compiled successfully!"
 
 $(BUILD_DIR):
@@ -61,6 +70,10 @@ $(BUILD_DIR):
 $(BUILD_DIR)/%.o: $(GUI_DIR)/%.cpp | $(BUILD_DIR)
 	@echo "Compiling: $<"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@ || (echo "❌ Failed: $<"; exit 1)
+
+$(BUILD_DIR)/%.o: ../gx/%.c | $(BUILD_DIR)
+	@echo "Compiling: $<"
+	@$(CC) $(CFLAGS) -c $< -o $@ || (echo "❌ Failed: $<"; exit 1)
 
 clean:
 	@rm -rf $(BUILD_DIR)

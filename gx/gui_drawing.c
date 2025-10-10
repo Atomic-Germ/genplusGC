@@ -7,7 +7,7 @@
  * gui_drawing.c - GUI rendering implementation
  ***************************************************************************/
 
-#include "../core/shared.h"
+#include <gccore.h>
 #include "gui_drawing.h"
 #include <string.h>
 #include <malloc.h>
@@ -27,8 +27,6 @@ void GUI_InitVideo(void)
 {
     /* Setup 2D projection matrix for GUI rendering */
     Mtx44 p;
-    f32 yscale = GX_GetYScaleFactor(vmode->efbHeight, vmode->xfbHeight);
-    u16 xfbHeight = GX_SetYScaleFactor(vmode->efbHeight, yscale);
     
     guOrtho(p, vmode->efbHeight/2, -(vmode->efbHeight/2), 
             -(vmode->fbWidth/2), vmode->fbWidth/2, 100, 1000);
