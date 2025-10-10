@@ -9,6 +9,7 @@
 
 #include <gccore.h>
 #include "gui_drawing.h"
+#include "gui/font.h"
 #include <string.h>
 #include <malloc.h>
 
@@ -147,15 +148,13 @@ void GUI_DrawRectangle(f32 x, f32 y, f32 width, f32 height, GXColor color, u8 fi
 /****************************************************************************
  * GUI_DrawText
  *
- * Basic text drawing (placeholder - will enhance with FreeTypeGX later)
+ * Basic text drawing using bitmap font system
  ***************************************************************************/
 void GUI_DrawText(int x, int y, const char *text, int size, GXColor color)
 {
-    /* TODO: Implement with bitmap font or FreeTypeGX */
-    /* For now, this is a stub that will be enhanced in Phase 5 */
-    (void)x;
-    (void)y;
-    (void)text;
-    (void)size;
-    (void)color;
+    if (!text)
+        return;
+    
+    /* Use existing font system */
+    FONT_write((char*)text, size, x, y, 640, color);
 }

@@ -11,6 +11,11 @@
 #include <string.h>
 #include <stdlib.h>
 
+/* C interface to font system */
+extern "C" {
+#include "../gui/font.h"
+}
+
 // Static preset variables
 static GXColor presetColor = (GXColor){255, 255, 255, 255};
 static int presetSize = 0;
@@ -227,9 +232,12 @@ int GuiText::GetTextWidth()
     if(!text)
         return 0;
     
-    // TODO: Calculate actual width using FreeTypeGX when integrated
-    // For now, return approximate width based on character count
-    return wcslen(text) * size / 2;
+    // Calculate actual width using wchar_t to char conversion
+    int len = 0;
+    while (text[len] && len < 255) len++;
+    
+    // Rough estimate: each character is approximately size * 0.5 pixels wide
+    return len * size / 2;
 }
 
 void GuiText::SetScroll(int s)
@@ -303,15 +311,37 @@ void GuiText::Draw()
     int newLeft = this->GetLeft();
     int newTop = this->GetTop();
     
-    // TODO: Implement actual text rendering with FreeTypeGX or bitmap font
-    // For now, use GUI_DrawText placeholder
-    // GUI_DrawText(newLeft, newTop, text, newSize, tempColor);
+    // Convert wchar_t to char for font system
+    // Simple ASCII conversion (wchar_t -> char)
+    int len = 0;
+    while (text[len] && len < 255) len++;
     
-    // Placeholder until we implement proper font rendering in Phase 5
-    (void)newLeft;
-    (void)newTop;
-    (void)newSize;
-    (void)tempColor;
+    char textBuffer[256];
+    for (int i = 0; i < len && i < 255; i++)
+    {
+        textBuffer[i] = (char)(text[i] & 0xFF);  // Take lower byte
+    }
+    textBuffer[len] = 0;
+    
+    // Use existing font system based on alignment
+    if (alignmentHor == ALIGN_CENTRE)
+    {
+        // Center alignment
+        int x1 = newLeft - (maxWidth / 2);
+        int x2 = newLeft + (maxWidth / 2);
+        FONT_writeCenter(textBuffer, newSize, x1, x2, newTop, tempColor);
+    }
+    else if (alignmentHor == ALIGN_RIGHT)
+    {
+        // Right alignment
+        FONT_alignRight(textBuffer, newSize, newLeft, newTop, tempColor);
+    }
+    else
+    {
+        // Left alignment (default)
+        FONT_write(textBuffer, newSize, newLeft, newTop, 
+                  maxWidth > 0 ? maxWidth : 640, tempColor);
+    }
     
     this->UpdateEffects();
 }
