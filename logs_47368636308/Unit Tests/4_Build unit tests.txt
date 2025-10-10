@@ -1,0 +1,7 @@
+﻿2025-10-10T17:15:23.1043955Z ##[group]Run cd tests
+2025-10-10T17:15:23.1044218Z [36;1mcd tests[0m
+2025-10-10T17:15:23.1044393Z [36;1mmake tests[0m
+2025-10-10T17:15:23.1077638Z shell: /usr/bin/bash -e {0}
+2025-10-10T17:15:23.1077864Z ##[endgroup]
+2025-10-10T17:15:25.2580807Z [33mLinking:[0m build/test_runner
+2025-10-10T17:15:25.3221965Z [32mBuild complete:[0m build/test_runner

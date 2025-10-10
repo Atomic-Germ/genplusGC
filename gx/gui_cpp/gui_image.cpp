@@ -9,6 +9,11 @@
 
 #include "gui.h"
 
+/* C interface to GUI drawing functions */
+extern "C" {
+#include "../gui_drawing.h"
+}
+
 /**
  * Constructor for the GuiImage class.
  */
@@ -210,31 +215,38 @@ void GuiImage::Draw()
     if (!image || !this->IsVisible() || tile == 0)
         return;
 
-    // TODO: Implement actual drawing with GX
-    // For now, placeholder structure
-    // float currScaleX = this->GetScaleX();
-    // float currScaleY = this->GetScaleY();
-    // int currLeft = this->GetLeft();
-    // int thisTop = this->GetTop();
-    
-    // Tiled drawing
-    // if (tile > 0)
-    // {
-    //     int alpha = this->GetAlpha();
-    //     for (int i = 0; i < tile; ++i)
-    //         Menu_DrawImg(currLeft + width * i, thisTop, width, height, image, imageangle, currScaleX, currScaleY, alpha);
-    // }
-    // else
-    // {
-    //     Menu_DrawImg(currLeft, thisTop, width, height, image, imageangle, currScaleX, currScaleY, this->GetAlpha());
-    // }
-    
-    // Stripe overlay
-    // if (stripe > 0)
-    // {
-    //     for (int y = 0; y < height; y += 6)
-    //         Menu_DrawRectangle(currLeft, thisTop + y, width, 3, (GXColor){0, 0, 0, stripe}, 1);
-    // }
-    
+    float currScale = this->GetScale();
+    int currLeft = this->GetLeft();
+    int thisTop = this->GetTop();
+
+    if (tile > 0)
+    {
+        // Tiled rendering
+        int alpha = this->GetAlpha();
+        for (int i = 0; i < tile; ++i)
+        {
+            GUI_DrawImg(currLeft + width * i, thisTop, width, height, 
+                       image, imageangle, currScale, currScale, alpha);
+        }
+    }
+    else
+    {
+        // Single image
+        GUI_DrawImg(currLeft, thisTop, width, height, image, 
+                   imageangle, currScale, currScale, this->GetAlpha());
+    }
+
+    // Stripe effect (for highlighting)
+    if (stripe > 0)
+    {
+        int thisHeight = this->GetHeight();
+        int thisWidth = this->GetWidth();
+        for (int y = 0; y < thisHeight; y += 6)
+        {
+            GUI_DrawRectangle(currLeft, thisTop + y, thisWidth, 3, 
+                            (GXColor){0, 0, 0, (u8)stripe}, 1);
+        }
+    }
+
     this->UpdateEffects();
 }

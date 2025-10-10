@@ -1,0 +1,405 @@
+﻿2025-10-10T17:15:31.6295563Z Current runner version: '2.328.0'
+2025-10-10T17:15:31.6319458Z ##[group]Runner Image Provisioner
+2025-10-10T17:15:31.6320506Z Hosted Compute Agent
+2025-10-10T17:15:31.6321057Z Version: 20250912.392
+2025-10-10T17:15:31.6321633Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-10-10T17:15:31.6322387Z Build Date: 2025-09-12T15:23:14Z
+2025-10-10T17:15:31.6322957Z ##[endgroup]
+2025-10-10T17:15:31.6323528Z ##[group]Operating System
+2025-10-10T17:15:31.6324146Z Ubuntu
+2025-10-10T17:15:31.6324596Z 24.04.3
+2025-10-10T17:15:31.6325067Z LTS
+2025-10-10T17:15:31.6325536Z ##[endgroup]
+2025-10-10T17:15:31.6326040Z ##[group]Runner Image
+2025-10-10T17:15:31.6326580Z Image: ubuntu-24.04
+2025-10-10T17:15:31.6327121Z Version: 20250929.60.1
+2025-10-10T17:15:31.6328100Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250929.60/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-10T17:15:31.6329636Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250929.60
+2025-10-10T17:15:31.6330947Z ##[endgroup]
+2025-10-10T17:15:31.6332019Z ##[group]GITHUB_TOKEN Permissions
+2025-10-10T17:15:31.6333897Z Contents: read
+2025-10-10T17:15:31.6334402Z Metadata: read
+2025-10-10T17:15:31.6334891Z Packages: read
+2025-10-10T17:15:31.6335513Z ##[endgroup]
+2025-10-10T17:15:31.6337478Z Secret source: Actions
+2025-10-10T17:15:31.6338137Z Prepare workflow directory
+2025-10-10T17:15:31.6790573Z Prepare all required actions
+2025-10-10T17:15:31.6827793Z Getting action download info
+2025-10-10T17:15:32.0678385Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-10-10T17:15:32.2674739Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2025-10-10T17:15:32.4686136Z Complete job name: Build (Wii)
+2025-10-10T17:15:32.5180464Z ##[group]Checking docker version
+2025-10-10T17:15:32.5193110Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2025-10-10T17:15:32.6707814Z '1.48'
+2025-10-10T17:15:32.6723092Z Docker daemon API version: '1.48'
+2025-10-10T17:15:32.6723946Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2025-10-10T17:15:32.6897757Z '1.48'
+2025-10-10T17:15:32.6911059Z Docker client API version: '1.48'
+2025-10-10T17:15:32.6916287Z ##[endgroup]
+2025-10-10T17:15:32.6920163Z ##[group]Clean up resources from previous jobs
+2025-10-10T17:15:32.6925922Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=37dfc0"
+2025-10-10T17:15:32.7199644Z ##[command]/usr/bin/docker network prune --force --filter "label=37dfc0"
+2025-10-10T17:15:32.7346938Z ##[endgroup]
+2025-10-10T17:15:32.7347842Z ##[group]Create local container network
+2025-10-10T17:15:32.7362024Z ##[command]/usr/bin/docker network create --label 37dfc0 github_network_a694672ea1f54503b082801ca1578910
+2025-10-10T17:15:32.7868994Z 7e03abfa0752fb6a59bdcc68757159e843ee1fefed9b73e173a977a07b21474e
+2025-10-10T17:15:32.7887734Z ##[endgroup]
+2025-10-10T17:15:32.7911491Z ##[group]Starting job container
+2025-10-10T17:15:32.7932268Z ##[command]/usr/bin/docker pull devkitpro/devkitppc:latest
+2025-10-10T17:15:33.7030041Z latest: Pulling from devkitpro/devkitppc
+2025-10-10T17:15:33.9607657Z 59e22667830b: Pulling fs layer
+2025-10-10T17:15:33.9608466Z 74701f26999d: Pulling fs layer
+2025-10-10T17:15:33.9609378Z ea5d3216df1f: Pulling fs layer
+2025-10-10T17:15:33.9610572Z ddfb5257c5ce: Pulling fs layer
+2025-10-10T17:15:33.9611727Z ddfb5257c5ce: Waiting
+2025-10-10T17:15:34.6372645Z ea5d3216df1f: Verifying Checksum
+2025-10-10T17:15:35.2375696Z ea5d3216df1f: Download complete
+2025-10-10T17:15:35.2376319Z 59e22667830b: Verifying Checksum
+2025-10-10T17:15:35.2376861Z 59e22667830b: Download complete
+2025-10-10T17:15:36.4125439Z 59e22667830b: Pull complete
+2025-10-10T17:15:40.4830130Z 74701f26999d: Download complete
+2025-10-10T17:15:40.6447440Z ddfb5257c5ce: Verifying Checksum
+2025-10-10T17:15:40.6448121Z ddfb5257c5ce: Download complete
+2025-10-10T17:15:49.0308330Z 74701f26999d: Pull complete
+2025-10-10T17:15:49.3806074Z ea5d3216df1f: Pull complete
+2025-10-10T17:15:57.1824169Z ddfb5257c5ce: Pull complete
+2025-10-10T17:15:57.1885178Z Digest: sha256:9652024feaa48256c2471840bdc829dc3c88171153f595f6be2afba678a47767
+2025-10-10T17:15:57.1902428Z Status: Downloaded newer image for devkitpro/devkitppc:latest
+2025-10-10T17:15:57.1916406Z docker.io/devkitpro/devkitppc:latest
+2025-10-10T17:15:57.1994442Z ##[command]/usr/bin/docker create --name 56780e405cd448fb9bede205e686c878_devkitprodevkitppclatest_7f06a3 --label 37dfc0 --workdir /__w/genplusGC/genplusGC --network github_network_a694672ea1f54503b082801ca1578910  -e "HOME=/github/home" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work":"/__w" -v "/home/runner/actions-runner/cached/externals":"/__e":ro -v "/home/runner/work/_temp":"/__w/_temp" -v "/home/runner/work/_actions":"/__w/_actions" -v "/opt/hostedtoolcache":"/__t" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" --entrypoint "tail" devkitpro/devkitppc:latest "-f" "/dev/null"
+2025-10-10T17:15:57.2288539Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.2313260Z ##[command]/usr/bin/docker start fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.5093711Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.5110920Z ##[command]/usr/bin/docker ps --all --filter id=fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2025-10-10T17:15:57.5224587Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 Up Less than a second
+2025-10-10T17:15:57.5244254Z ##[command]/usr/bin/docker inspect --format "{{range .Config.Env}}{{println .}}{{end}}" fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.5366951Z HOME=/github/home
+2025-10-10T17:15:57.5367335Z GITHUB_ACTIONS=true
+2025-10-10T17:15:57.5367658Z CI=true
+2025-10-10T17:15:57.5368290Z PATH=/opt/devkitpro/tools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2025-10-10T17:15:57.5369003Z DEBIAN_FRONTEND=noninteractive
+2025-10-10T17:15:57.5369485Z LANG=en_US.UTF-8
+2025-10-10T17:15:57.5370040Z DEVKITPRO=/opt/devkitpro
+2025-10-10T17:15:57.5370409Z DEVKITPPC=/opt/devkitpro/devkitPPC
+2025-10-10T17:15:57.5370839Z DEVKITARM=/opt/devkitpro/devkitARM
+2025-10-10T17:15:57.5392771Z ##[endgroup]
+2025-10-10T17:15:57.5402173Z ##[group]Waiting for all services to be ready
+2025-10-10T17:15:57.5403852Z ##[endgroup]
+2025-10-10T17:15:57.5596750Z ##[group]Run sudo dkp-pacman-key --recv-keys C8A2759C315CFBC3429CC2E422B803BA8AA3D7CE --keyserver keyserver.ubuntu.com
+2025-10-10T17:15:57.5597665Z [36;1msudo dkp-pacman-key --recv-keys C8A2759C315CFBC3429CC2E422B803BA8AA3D7CE --keyserver keyserver.ubuntu.com[0m
+2025-10-10T17:15:57.5598285Z [36;1msudo dkp-pacman-key --lsign-key C8A2759C315CFBC3429CC2E422B803BA8AA3D7CE[0m
+2025-10-10T17:15:57.5598751Z [36;1msudo sed -i '/^\[dkp-libs\]$/,$d' /opt/devkitpro/pacman/etc/pacman.conf[0m
+2025-10-10T17:15:57.5599625Z [36;1mprintf '%s\n' '[extremscorner-devkitpro]' 'Server = https://packages.extremscorner.org/devkitpro/linux/$arch' | sudo tee -a /opt/devkitpro/pacman/etc/pacman.conf[0m
+2025-10-10T17:15:57.5600672Z [36;1msudo dkp-pacman -Sy[0m
+2025-10-10T17:15:57.5601044Z [36;1msudo dkp-pacman -S --noconfirm --ask 4 gamecube-tools-git libogc2 libogc2-libdvm[0m
+2025-10-10T17:15:57.5604582Z shell: sh -e {0}
+2025-10-10T17:15:57.5605029Z ##[endgroup]
+2025-10-10T17:15:58.3292866Z gpg: key 22B803BA8AA3D7CE: public key "Extrems (devkitPro packages) <extrems+devkitpro@extremscorner.org>" imported
+2025-10-10T17:15:58.3361688Z gpg: Total number processed: 1
+2025-10-10T17:15:58.3362118Z gpg:               imported: 1
+2025-10-10T17:15:58.3857103Z   -> Locally signed 1 keys.
+2025-10-10T17:15:58.3866803Z ==> Updating trust database...
+2025-10-10T17:15:58.3896360Z gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+2025-10-10T17:15:58.3901205Z gpg: depth: 0  valid:   1  signed:   3  trust: 0-, 0q, 0n, 0m, 0f, 1u
+2025-10-10T17:15:58.3903711Z gpg: depth: 1  valid:   3  signed:   2  trust: 1-, 0q, 0n, 2m, 0f, 0u
+2025-10-10T17:15:58.4008722Z [extremscorner-devkitpro]
+2025-10-10T17:15:58.4009443Z Server = https://packages.extremscorner.org/devkitpro/linux/$arch
+2025-10-10T17:15:58.4115936Z :: Synchronizing package databases...
+2025-10-10T17:15:58.9888999Z  extremscorner-devkitpro downloading...
+2025-10-10T17:15:59.0374428Z resolving dependencies...
+2025-10-10T17:15:59.0395507Z looking for conflicting packages...
+2025-10-10T17:15:59.0397334Z :: gamecube-tools-git and gamecube-tools are in conflict. Remove gamecube-tools? [y/N] 
+2025-10-10T17:15:59.0401767Z 
+2025-10-10T17:15:59.0402609Z Packages (4) gamecube-tools-1.0.7-1 [removal]  gamecube-tools-git-r97.a9c0c7b-1  libogc2-git-r2295.c62bae0-1  libogc2-libdvm-git-r50.6c5008b-2
+2025-10-10T17:15:59.0403135Z 
+2025-10-10T17:15:59.0403232Z Total Download Size:    8.01 MiB
+2025-10-10T17:15:59.0403495Z Total Installed Size:  22.24 MiB
+2025-10-10T17:15:59.0403740Z Net Upgrade Size:      15.32 MiB
+2025-10-10T17:15:59.0403879Z 
+2025-10-10T17:15:59.0403993Z :: Proceed with installation? [Y/n] 
+2025-10-10T17:15:59.0404248Z :: Retrieving packages...
+2025-10-10T17:16:01.2697312Z  gamecube-tools-git-r97.a9c0c7b-1-x86_64 downloading...
+2025-10-10T17:16:01.2697934Z  libogc2-git-r2295.c62bae0-1-any downloading...
+2025-10-10T17:16:01.2698318Z  libogc2-libdvm-git-r50.6c5008b-2-any downloading...
+2025-10-10T17:16:01.2698649Z checking keyring...
+2025-10-10T17:16:01.2760240Z checking package integrity...
+2025-10-10T17:16:01.3649179Z loading package files...
+2025-10-10T17:16:01.3669441Z checking for file conflicts...
+2025-10-10T17:16:01.3675265Z checking available disk space...
+2025-10-10T17:16:01.3679000Z :: Processing package changes...
+2025-10-10T17:16:01.3679613Z removing gamecube-tools...
+2025-10-10T17:16:01.3763310Z installing gamecube-tools-git...
+2025-10-10T17:16:01.4007899Z installing libogc2-git...
+2025-10-10T17:16:01.4504016Z installing libogc2-libdvm-git...
+2025-10-10T17:16:01.4798574Z ##[group]Run actions/checkout@v4
+2025-10-10T17:16:01.4798840Z with:
+2025-10-10T17:16:01.4799007Z   fetch-depth: 0
+2025-10-10T17:16:01.4799208Z   repository: Atomic-Germ/genplusGC
+2025-10-10T17:16:01.4799572Z   token: ***
+2025-10-10T17:16:01.4799997Z   ssh-strict: true
+2025-10-10T17:16:01.4800183Z   ssh-user: git
+2025-10-10T17:16:01.4800373Z   persist-credentials: true
+2025-10-10T17:16:01.4800586Z   clean: true
+2025-10-10T17:16:01.4800766Z   sparse-checkout-cone-mode: true
+2025-10-10T17:16:01.4800990Z   fetch-tags: false
+2025-10-10T17:16:01.4801163Z   show-progress: true
+2025-10-10T17:16:01.4801343Z   lfs: false
+2025-10-10T17:16:01.4801497Z   submodules: false
+2025-10-10T17:16:01.4801683Z   set-safe-directory: true
+2025-10-10T17:16:01.4801878Z ##[endgroup]
+2025-10-10T17:16:01.4840728Z ##[command]/usr/bin/docker exec  fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 sh -c "cat /etc/*release | grep ^ID"
+2025-10-10T17:16:01.6878158Z Syncing repository: Atomic-Germ/genplusGC
+2025-10-10T17:16:01.6879357Z ##[group]Getting Git version info
+2025-10-10T17:16:01.6879689Z Working directory is '/__w/genplusGC/genplusGC'
+2025-10-10T17:16:01.6880495Z [command]/usr/bin/git version
+2025-10-10T17:16:01.6880722Z git version 2.39.5
+2025-10-10T17:16:01.6899112Z ##[endgroup]
+2025-10-10T17:16:01.6913862Z Temporarily overriding HOME='/__w/_temp/5de6168a-4ee6-4a45-b5ef-759dd71248b4' before making global git config changes
+2025-10-10T17:16:01.6914572Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-10T17:16:01.6921039Z [command]/usr/bin/git config --global --add safe.directory /__w/genplusGC/genplusGC
+2025-10-10T17:16:01.6954559Z Deleting the contents of '/__w/genplusGC/genplusGC'
+2025-10-10T17:16:01.6958857Z ##[group]Initializing the repository
+2025-10-10T17:16:01.6962972Z [command]/usr/bin/git init /__w/genplusGC/genplusGC
+2025-10-10T17:16:01.6994513Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-10T17:16:01.6995493Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-10T17:16:01.6995981Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-10T17:16:01.6996309Z hint: 
+2025-10-10T17:16:01.6996722Z hint: 	git config --global init.defaultBranch <name>
+2025-10-10T17:16:01.6997022Z hint: 
+2025-10-10T17:16:01.6997290Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-10T17:16:01.6997726Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-10T17:16:01.6998073Z hint: 
+2025-10-10T17:16:01.6998244Z hint: 	git branch -m <name>
+2025-10-10T17:16:01.7002805Z Initialized empty Git repository in /__w/genplusGC/genplusGC/.git/
+2025-10-10T17:16:01.7014197Z [command]/usr/bin/git remote add origin https://github.com/Atomic-Germ/genplusGC
+2025-10-10T17:16:01.7043767Z ##[endgroup]
+2025-10-10T17:16:01.7044207Z ##[group]Disabling automatic garbage collection
+2025-10-10T17:16:01.7047485Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-10T17:16:01.7074493Z ##[endgroup]
+2025-10-10T17:16:01.7141132Z ##[group]Setting up auth
+2025-10-10T17:16:01.7146641Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-10T17:16:01.7148957Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-10T17:16:01.7323083Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-10T17:16:01.7351725Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-10T17:16:01.7553507Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-10T17:16:01.7587855Z ##[endgroup]
+2025-10-10T17:16:01.7588835Z ##[group]Fetching the repository
+2025-10-10T17:16:01.7597172Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-10-10T17:16:03.2507634Z From https://github.com/Atomic-Germ/genplusGC
+2025-10-10T17:16:03.2508349Z  * [new branch]      main                  -> origin/main
+2025-10-10T17:16:03.2513602Z  * [new branch]      phase1-cleanup        -> origin/phase1-cleanup
+2025-10-10T17:16:03.2515069Z  * [new branch]      phase2-testing        -> origin/phase2-testing
+2025-10-10T17:16:03.2518272Z  * [new branch]      phase3-gui-foundation -> origin/phase3-gui-foundation
+2025-10-10T17:16:03.2520650Z  * [new branch]      phase4-hardware-integration -> origin/phase4-hardware-integration
+2025-10-10T17:16:03.2522523Z  * [new branch]      refactor              -> origin/refactor
+2025-10-10T17:16:03.2523590Z  * [new tag]         baseline-pre-phase1   -> baseline-pre-phase1
+2025-10-10T17:16:03.2524831Z  * [new tag]         phase1-complete       -> phase1-complete
+2025-10-10T17:16:03.2525405Z  * [new tag]         phase2-complete       -> phase2-complete
+2025-10-10T17:16:03.2554065Z [command]/usr/bin/git branch --list --remote origin/phase4-hardware-integration
+2025-10-10T17:16:03.2576128Z   origin/phase4-hardware-integration
+2025-10-10T17:16:03.2585591Z [command]/usr/bin/git rev-parse refs/remotes/origin/phase4-hardware-integration
+2025-10-10T17:16:03.2604306Z 097e33e310906d1f5dd05bd406d8322d72a28a92
+2025-10-10T17:16:03.2619301Z ##[endgroup]
+2025-10-10T17:16:03.2619893Z ##[group]Determining the checkout info
+2025-10-10T17:16:03.2621289Z ##[endgroup]
+2025-10-10T17:16:03.2625262Z [command]/usr/bin/git sparse-checkout disable
+2025-10-10T17:16:03.2658622Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-10T17:16:03.2683940Z ##[group]Checking out the ref
+2025-10-10T17:16:03.2691761Z [command]/usr/bin/git checkout --progress --force -B phase4-hardware-integration refs/remotes/origin/phase4-hardware-integration
+2025-10-10T17:16:03.4612427Z Switched to a new branch 'phase4-hardware-integration'
+2025-10-10T17:16:03.4613486Z branch 'phase4-hardware-integration' set up to track 'origin/phase4-hardware-integration'.
+2025-10-10T17:16:03.4632765Z ##[endgroup]
+2025-10-10T17:16:03.4673369Z [command]/usr/bin/git log -1 --format=%H
+2025-10-10T17:16:03.4707394Z 097e33e310906d1f5dd05bd406d8322d72a28a92
+2025-10-10T17:16:03.4872765Z ##[group]Run make -f Makefile.wii -j1
+2025-10-10T17:16:03.4873084Z [36;1mmake -f Makefile.wii -j1[0m
+2025-10-10T17:16:03.4873406Z shell: sh -e {0}
+2025-10-10T17:16:03.4873593Z ##[endgroup]
+2025-10-10T17:16:03.5688195Z Banner_bottom.png
+2025-10-10T17:16:03.5833005Z Banner_main.png
+2025-10-10T17:16:03.6041417Z Banner_top.png
+2025-10-10T17:16:03.6187096Z Bg_credits.png
+2025-10-10T17:16:03.7297422Z Bg_intro_c1.png
+2025-10-10T17:16:03.7493283Z Bg_intro_c2.png
+2025-10-10T17:16:03.7673580Z Bg_intro_c3.png
+2025-10-10T17:16:03.7840966Z Bg_intro_c4.png
+2025-10-10T17:16:03.8002150Z Bg_layer.png
+2025-10-10T17:16:03.8126532Z Bg_overlay.png
+2025-10-10T17:16:03.8256108Z Browser_dir.png
+2025-10-10T17:16:03.8386303Z Button_arrow_over.png
+2025-10-10T17:16:03.8523815Z Button_arrow.png
+2025-10-10T17:16:03.8661768Z Button_delete_over.png
+2025-10-10T17:16:03.8802375Z Button_delete.png
+2025-10-10T17:16:03.8939547Z Button_digit_over.png
+2025-10-10T17:16:03.9068199Z Button_digit.png
+2025-10-10T17:16:03.9195900Z Button_down_over.png
+2025-10-10T17:16:03.9331161Z Button_down.png
+2025-10-10T17:16:03.9466389Z Button_icon_over.png
+2025-10-10T17:16:03.9614420Z Button_icon.png
+2025-10-10T17:16:03.9763715Z Button_icon_sm_over.png
+2025-10-10T17:16:03.9900875Z Button_icon_sm.png
+2025-10-10T17:16:04.0040117Z Button_load_over.png
+2025-10-10T17:16:04.0177634Z Button_load.png
+2025-10-10T17:16:04.0315950Z Button_save_over.png
+2025-10-10T17:16:04.0452422Z Button_save.png
+2025-10-10T17:16:04.0589923Z Button_sm_blue.png
+2025-10-10T17:16:04.0728101Z Button_sm_grey.png
+2025-10-10T17:16:04.0861997Z Button_sm_yellow.png
+2025-10-10T17:16:04.0995823Z Button_special_over.png
+2025-10-10T17:16:04.1136913Z Button_special.png
+2025-10-10T17:16:04.1277218Z Button_text_over.png
+2025-10-10T17:16:04.1410443Z Button_text.png
+2025-10-10T17:16:04.1542810Z Button_up_over.png
+2025-10-10T17:16:04.1679474Z Button_up.png
+2025-10-10T17:16:04.1813657Z Cart_gg.png
+2025-10-10T17:16:04.2045476Z Cart_md.png
+2025-10-10T17:16:04.2257002Z Cart_ms.png
+2025-10-10T17:16:04.2462864Z Cart_sg.png
+2025-10-10T17:16:04.2705921Z CD_access_off.png
+2025-10-10T17:16:04.2834585Z CD_access_on.png
+2025-10-10T17:16:04.2963058Z CD_ready_off.png
+2025-10-10T17:16:04.3090474Z CD_ready_on.png
+2025-10-10T17:16:04.3220084Z Crosshair_p1.png
+2025-10-10T17:16:04.3347277Z Crosshair_p2.png
+2025-10-10T17:16:04.3473784Z Ctrl_4wayplay.png
+2025-10-10T17:16:04.3613929Z Ctrl_activator.png
+2025-10-10T17:16:04.3747108Z ctrl_classic.png
+2025-10-10T17:16:04.3873978Z Ctrl_config.png
+2025-10-10T17:16:04.4004201Z ctrl_gamecube.png
+2025-10-10T17:16:04.4133141Z Ctrl_gamepad.png
+2025-10-10T17:16:04.4272298Z Ctrl_graphic_board.png
+2025-10-10T17:16:04.4415273Z Ctrl_justifiers.png
+2025-10-10T17:16:04.4555041Z Ctrl_lightphaser.png
+2025-10-10T17:16:04.4695902Z Ctrl_mastertap.png
+2025-10-10T17:16:04.4844460Z Ctrl_menacer.png
+2025-10-10T17:16:04.4997407Z Ctrl_mouse.png
+2025-10-10T17:16:04.5138286Z Ctrl_none.png
+2025-10-10T17:16:04.5272864Z ctrl_nunchuk.png
+2025-10-10T17:16:04.5402339Z ctrl_option_off.png
+2025-10-10T17:16:04.5529916Z ctrl_option_on.png
+2025-10-10T17:16:04.5655923Z Ctrl_pad2b.png
+2025-10-10T17:16:04.5782077Z Ctrl_pad3b.png
+2025-10-10T17:16:04.5912839Z Ctrl_pad6b.png
+2025-10-10T17:16:04.6048638Z Ctrl_pad_auto.png
+2025-10-10T17:16:04.6175696Z Ctrl_paddle.png
+2025-10-10T17:16:04.6317421Z Ctrl_sportspad.png
+2025-10-10T17:16:04.6461653Z Ctrl_teamplayer.png
+2025-10-10T17:16:04.6607371Z ctrl_wiimote.png
+2025-10-10T17:16:04.6735962Z ctrl_wiiu.png
+2025-10-10T17:16:04.6866612Z Ctrl_xe_1ap.png
+2025-10-10T17:16:04.7008053Z Frame_s1.png
+2025-10-10T17:16:04.7155678Z Frame_s1_title.png
+2025-10-10T17:16:04.7297600Z Frame_s2.png
+2025-10-10T17:16:04.7435352Z Frame_s2_title.png
+2025-10-10T17:16:04.7567460Z Frame_s3.png
+2025-10-10T17:16:04.7707624Z Frame_throbber.png
+2025-10-10T17:16:04.7837093Z generic_point.png
+2025-10-10T17:16:04.7967512Z Key_A_gcn.png
+2025-10-10T17:16:04.8097602Z Key_A_wii.png
+2025-10-10T17:16:04.8227831Z Key_B_gcn.png
+2025-10-10T17:16:04.8356514Z Key_B_wii.png
+2025-10-10T17:16:04.8485134Z Key_DPAD.png
+2025-10-10T17:16:04.8615105Z Key_L_gcn.png
+2025-10-10T17:16:04.8746526Z Key_Minus_wii.png
+2025-10-10T17:16:04.8877075Z Key_Plus_wii.png
+2025-10-10T17:16:04.9006249Z Key_R_gcn.png
+2025-10-10T17:16:04.9137800Z Load_cd.png
+2025-10-10T17:16:04.9293486Z Load_gg.png
+2025-10-10T17:16:04.9438746Z Load_md.png
+2025-10-10T17:16:04.9585576Z Load_ms.png
+2025-10-10T17:16:04.9734538Z Load_recent.png
+2025-10-10T17:16:04.9879342Z Load_sg.png
+2025-10-10T17:16:05.0022131Z Main_cheats.png
+2025-10-10T17:16:05.0153966Z Main_file.png
+2025-10-10T17:16:05.0306009Z Main_load.png
+2025-10-10T17:16:05.0470072Z Main_logo.png
+2025-10-10T17:16:05.0669065Z Main_options.png
+2025-10-10T17:16:05.0820061Z Main_play_gcn.png
+2025-10-10T17:16:05.0956571Z Main_play_wii.png
+2025-10-10T17:16:05.1099617Z Main_quit.png
+2025-10-10T17:16:05.1236656Z Main_reset.png
+2025-10-10T17:16:05.1384916Z Main_showinfo.png
+2025-10-10T17:16:05.1522511Z Main_takeshot.png
+2025-10-10T17:16:05.1661803Z Option_ctrl.png
+2025-10-10T17:16:05.1827200Z Option_menu.png
+2025-10-10T17:16:05.1963048Z Option_sound.png
+2025-10-10T17:16:05.2105716Z Option_system.png
+2025-10-10T17:16:05.2264786Z Option_video.png
+2025-10-10T17:16:05.2406619Z Overlay_bar.png
+2025-10-10T17:16:05.2540516Z Snap_empty.png
+2025-10-10T17:16:05.2760173Z Star_empty.png
+2025-10-10T17:16:05.2887801Z Star_full.png
+2025-10-10T17:16:05.3018266Z button_over.pcm
+2025-10-10T17:16:05.3144055Z button_select.pcm
+2025-10-10T17:16:05.3309501Z intro.pcm
+2025-10-10T17:16:05.3617094Z gui_button.cpp
+2025-10-10T17:16:05.5593837Z gui_element.cpp
+2025-10-10T17:16:05.8144395Z gui_image.cpp
+2025-10-10T17:16:05.9477546Z /__w/genplusGC/genplusGC/gx/gui_cpp/gui_image.cpp: In member function 'virtual void GuiImage::Draw()':
+2025-10-10T17:16:05.9478510Z /__w/genplusGC/genplusGC/gx/gui_cpp/gui_image.cpp:218:30: error: 'class GuiImage' has no member named 'GetScaleX'; did you mean 'GetScale'?
+2025-10-10T17:16:05.9479161Z   218 |     float currScaleX = this->GetScaleX();
+2025-10-10T17:16:05.9479474Z       |                              ^~~~~~~~~
+2025-10-10T17:16:05.9479987Z       |                              GetScale
+2025-10-10T17:16:05.9480606Z /__w/genplusGC/genplusGC/gx/gui_cpp/gui_image.cpp:219:30: error: 'class GuiImage' has no member named 'GetScaleY'; did you mean 'GetScale'?
+2025-10-10T17:16:05.9481243Z   219 |     float currScaleY = this->GetScaleY();
+2025-10-10T17:16:05.9481520Z       |                              ^~~~~~~~~
+2025-10-10T17:16:05.9481773Z       |                              GetScale
+2025-10-10T17:16:05.9516424Z make[1]: *** [/opt/devkitpro/devkitPPC/base_rules:15: gui_image.o] Error 1
+2025-10-10T17:16:05.9519435Z make: *** [Makefile.wii:112: build_wii] Error 2
+2025-10-10T17:16:05.9560659Z ##[error]Process completed with exit code 2.
+2025-10-10T17:16:05.9604568Z ##[group]Run mkdir -p dist/GenesisPlusGX/apps/genplusgx
+2025-10-10T17:16:05.9604986Z [36;1mmkdir -p dist/GenesisPlusGX/apps/genplusgx[0m
+2025-10-10T17:16:05.9605313Z [36;1mmkdir -p dist/GenesisPlusGX/genplusgx/roms[0m
+2025-10-10T17:16:05.9605636Z [36;1mmkdir dist/GenesisPlusGX/genplusgx/cheats[0m
+2025-10-10T17:16:05.9605939Z [36;1mmkdir dist/GenesisPlusGX/genplusgx/saves[0m
+2025-10-10T17:16:05.9606251Z [36;1mtouch dist/GenesisPlusGX/genplusgx/roms/romsdir[0m
+2025-10-10T17:16:05.9606615Z [36;1mtouch dist/GenesisPlusGX/genplusgx/cheats/cheatsdir[0m
+2025-10-10T17:16:05.9606965Z [36;1mtouch dist/GenesisPlusGX/genplusgx/saves/savesdir[0m
+2025-10-10T17:16:05.9607289Z [36;1mcp hbc/* dist/GenesisPlusGX/apps/genplusgx/[0m
+2025-10-10T17:16:05.9607649Z [36;1mcp genplus_wii.dol dist/GenesisPlusGX/apps/genplusgx/boot.dol[0m
+2025-10-10T17:16:05.9608216Z shell: sh -e {0}
+2025-10-10T17:16:05.9608395Z ##[endgroup]
+2025-10-10T17:16:06.0193622Z cp: cannot stat 'hbc/*': No such file or directory
+2025-10-10T17:16:06.0222063Z ##[error]Process completed with exit code 1.
+2025-10-10T17:16:06.0271121Z ##[group]Run actions/upload-artifact@v4
+2025-10-10T17:16:06.0271391Z with:
+2025-10-10T17:16:06.0271563Z   name: GenesisPlusGX
+2025-10-10T17:16:06.0271766Z   path: dist/GenesisPlusGX/
+
+2025-10-10T17:16:06.0271994Z   if-no-files-found: warn
+2025-10-10T17:16:06.0272198Z   compression-level: 6
+2025-10-10T17:16:06.0272397Z   overwrite: false
+2025-10-10T17:16:06.0272583Z   include-hidden-files: false
+2025-10-10T17:16:06.0272794Z ##[endgroup]
+2025-10-10T17:16:06.0275396Z ##[command]/usr/bin/docker exec  fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 sh -c "cat /etc/*release | grep ^ID"
+2025-10-10T17:16:06.3410860Z With the provided path, there will be 3 files uploaded
+2025-10-10T17:16:06.3417965Z Artifact name is valid!
+2025-10-10T17:16:06.3419264Z Root directory input is valid!
+2025-10-10T17:16:06.6246822Z Beginning upload of artifact content to blob storage
+2025-10-10T17:16:06.8863147Z Uploaded bytes 448
+2025-10-10T17:16:06.9564505Z Finished uploading artifact content to blob storage!
+2025-10-10T17:16:06.9568176Z SHA256 digest of uploaded artifact zip is 9a757bfdc896a5b0fc817ea9b095f569ded957104365ed542acc8107d78d34b8
+2025-10-10T17:16:06.9570261Z Finalizing artifact upload
+2025-10-10T17:16:07.0759382Z Artifact GenesisPlusGX.zip successfully finalized. Artifact ID 4239685342
+2025-10-10T17:16:07.0760567Z Artifact GenesisPlusGX has been successfully uploaded! Final size is 448 bytes. Artifact ID is 4239685342
+2025-10-10T17:16:07.0766338Z Artifact download URL: https://github.com/Atomic-Germ/genplusGC/actions/runs/18413481361/artifacts/4239685342
+2025-10-10T17:16:07.0924847Z Post job cleanup.
+2025-10-10T17:16:07.0928590Z ##[command]/usr/bin/docker exec  fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 sh -c "cat /etc/*release | grep ^ID"
+2025-10-10T17:16:07.2798872Z [command]/usr/bin/git version
+2025-10-10T17:16:07.2834238Z git version 2.39.5
+2025-10-10T17:16:07.2879340Z Temporarily overriding HOME='/__w/_temp/948065b4-0ef5-4c25-ad0a-4b11b9ea3241' before making global git config changes
+2025-10-10T17:16:07.2880605Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-10T17:16:07.2885778Z [command]/usr/bin/git config --global --add safe.directory /__w/genplusGC/genplusGC
+2025-10-10T17:16:07.2925453Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-10T17:16:07.2958691Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-10T17:16:07.3162675Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-10T17:16:07.3182118Z http.https://github.com/.extraheader
+2025-10-10T17:16:07.3193562Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-10-10T17:16:07.3224305Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-10T17:16:07.3537456Z Stop and remove container: 56780e405cd448fb9bede205e686c878_devkitprodevkitppclatest_7f06a3
+2025-10-10T17:16:07.3542699Z ##[command]/usr/bin/docker rm --force fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:16:07.4766225Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:16:07.4797238Z Remove container network: github_network_a694672ea1f54503b082801ca1578910
+2025-10-10T17:16:07.4801837Z ##[command]/usr/bin/docker network rm github_network_a694672ea1f54503b082801ca1578910
+2025-10-10T17:16:07.5912736Z github_network_a694672ea1f54503b082801ca1578910
+2025-10-10T17:16:07.5968333Z Cleaning up orphan processes

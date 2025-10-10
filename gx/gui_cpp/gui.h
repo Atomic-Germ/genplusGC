@@ -96,6 +96,7 @@ public:
     void SetHeldTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
     void SetButtonOnlyTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
     void SetButtonOnlyInFocusTrigger(s32 ch, u32 wiibtns, u16 gcbtns);
+    void Update();
     bool Left();
     bool Right();
     bool Up();

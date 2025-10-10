@@ -1,0 +1,14 @@
+﻿2025-10-10T17:16:05.9604558Z ##[group]Run mkdir -p dist/GenesisPlusGX/apps/genplusgx
+2025-10-10T17:16:05.9604983Z [36;1mmkdir -p dist/GenesisPlusGX/apps/genplusgx[0m
+2025-10-10T17:16:05.9605305Z [36;1mmkdir -p dist/GenesisPlusGX/genplusgx/roms[0m
+2025-10-10T17:16:05.9605634Z [36;1mmkdir dist/GenesisPlusGX/genplusgx/cheats[0m
+2025-10-10T17:16:05.9605936Z [36;1mmkdir dist/GenesisPlusGX/genplusgx/saves[0m
+2025-10-10T17:16:05.9606249Z [36;1mtouch dist/GenesisPlusGX/genplusgx/roms/romsdir[0m
+2025-10-10T17:16:05.9606612Z [36;1mtouch dist/GenesisPlusGX/genplusgx/cheats/cheatsdir[0m
+2025-10-10T17:16:05.9606963Z [36;1mtouch dist/GenesisPlusGX/genplusgx/saves/savesdir[0m
+2025-10-10T17:16:05.9607287Z [36;1mcp hbc/* dist/GenesisPlusGX/apps/genplusgx/[0m
+2025-10-10T17:16:05.9607646Z [36;1mcp genplus_wii.dol dist/GenesisPlusGX/apps/genplusgx/boot.dol[0m
+2025-10-10T17:16:05.9608213Z shell: sh -e {0}
+2025-10-10T17:16:05.9608393Z ##[endgroup]
+2025-10-10T17:16:06.0193495Z cp: cannot stat 'hbc/*': No such file or directory
+2025-10-10T17:16:06.0222052Z ##[error]Process completed with exit code 1.

@@ -8,6 +8,8 @@
  ***************************************************************************/
 
 #include "gui.h"
+#include <string.h>
+#include <stdlib.h>
 
 // Static preset variables
 static GXColor presetColor = (GXColor){255, 255, 255, 255};
@@ -19,6 +21,16 @@ static u16 presetStyle = 0;
 
 #define TEXT_SCROLL_DELAY          8
 #define TEXT_SCROLL_INITIAL_DELAY  6
+
+// Helper function to duplicate string (strdup may not be available)
+static char* DuplicateString(const char* str)
+{
+    if (!str) return NULL;
+    size_t len = strlen(str);
+    char* dup = (char*)malloc(len + 1);
+    if (dup) strcpy(dup, str);
+    return dup;
+}
 
 /**
  * Constructor for the GuiText class.
@@ -44,7 +56,7 @@ GuiText::GuiText(const char * t, int s, GXColor c)
     
     if(t)
     {
-        origText = strdup(t);
+        origText = DuplicateString(t);
         // TODO: Implement charToWideChar conversion when text system is integrated
         // For now, simple ASCII to wchar_t conversion
         int len = strlen(t);
@@ -82,7 +94,7 @@ GuiText::GuiText(const char * t)
     
     if(t)
     {
-        origText = strdup(t);
+        origText = DuplicateString(t);
         // TODO: Implement charToWideChar conversion when text system is integrated
         // For now, simple ASCII to wchar_t conversion
         int len = strlen(t);
@@ -136,7 +148,7 @@ void GuiText::SetText(const char * t)
     
     if(t)
     {
-        origText = strdup(t);
+        origText = DuplicateString(t);
         // TODO: Implement charToWideChar conversion when text system is integrated
         // For now, simple ASCII to wchar_t conversion
         int len = strlen(t);
@@ -287,19 +299,19 @@ void GuiText::Draw()
     
     int newSize = size * this->GetScale();
     
-    // TODO: Implement actual text rendering with FreeTypeGX
-    // This will call FreeTypeGX rendering functions to draw the text
-    // at the calculated position with proper alignment and effects
+    // Get position
+    int newLeft = this->GetLeft();
+    int newTop = this->GetTop();
     
-    // Placeholder structure for future rendering:
-    // 1. Calculate final position based on alignment
-    // 2. Apply effects (fade, scale, etc.)
-    // 3. Handle scrolling if enabled
-    // 4. Render wrapped lines if wrap is enabled
-    // 5. Call FreeTypeGX DrawText with calculated parameters
+    // TODO: Implement actual text rendering with FreeTypeGX or bitmap font
+    // For now, use GUI_DrawText placeholder
+    // GUI_DrawText(newLeft, newTop, text, newSize, tempColor);
     
-    (void)newSize;    // Suppress unused variable warning
-    (void)tempColor;  // Suppress unused variable warning
+    // Placeholder until we implement proper font rendering in Phase 5
+    (void)newLeft;
+    (void)newTop;
+    (void)newSize;
+    (void)tempColor;
     
     this->UpdateEffects();
 }

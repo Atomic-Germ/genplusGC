@@ -1,0 +1,136 @@
+﻿2025-10-10T17:16:03.4872752Z ##[group]Run make -f Makefile.wii -j1
+2025-10-10T17:16:03.4873073Z [36;1mmake -f Makefile.wii -j1[0m
+2025-10-10T17:16:03.4873403Z shell: sh -e {0}
+2025-10-10T17:16:03.4873591Z ##[endgroup]
+2025-10-10T17:16:03.5688172Z Banner_bottom.png
+2025-10-10T17:16:03.5832981Z Banner_main.png
+2025-10-10T17:16:03.6041398Z Banner_top.png
+2025-10-10T17:16:03.6187078Z Bg_credits.png
+2025-10-10T17:16:03.7297384Z Bg_intro_c1.png
+2025-10-10T17:16:03.7493262Z Bg_intro_c2.png
+2025-10-10T17:16:03.7673560Z Bg_intro_c3.png
+2025-10-10T17:16:03.7840949Z Bg_intro_c4.png
+2025-10-10T17:16:03.8002132Z Bg_layer.png
+2025-10-10T17:16:03.8126508Z Bg_overlay.png
+2025-10-10T17:16:03.8256087Z Browser_dir.png
+2025-10-10T17:16:03.8386280Z Button_arrow_over.png
+2025-10-10T17:16:03.8523800Z Button_arrow.png
+2025-10-10T17:16:03.8661749Z Button_delete_over.png
+2025-10-10T17:16:03.8802354Z Button_delete.png
+2025-10-10T17:16:03.8939528Z Button_digit_over.png
+2025-10-10T17:16:03.9068183Z Button_digit.png
+2025-10-10T17:16:03.9195795Z Button_down_over.png
+2025-10-10T17:16:03.9331145Z Button_down.png
+2025-10-10T17:16:03.9466372Z Button_icon_over.png
+2025-10-10T17:16:03.9614402Z Button_icon.png
+2025-10-10T17:16:03.9763698Z Button_icon_sm_over.png
+2025-10-10T17:16:03.9900859Z Button_icon_sm.png
+2025-10-10T17:16:04.0040091Z Button_load_over.png
+2025-10-10T17:16:04.0177618Z Button_load.png
+2025-10-10T17:16:04.0315931Z Button_save_over.png
+2025-10-10T17:16:04.0452406Z Button_save.png
+2025-10-10T17:16:04.0589907Z Button_sm_blue.png
+2025-10-10T17:16:04.0728063Z Button_sm_grey.png
+2025-10-10T17:16:04.0861972Z Button_sm_yellow.png
+2025-10-10T17:16:04.0995800Z Button_special_over.png
+2025-10-10T17:16:04.1136890Z Button_special.png
+2025-10-10T17:16:04.1277195Z Button_text_over.png
+2025-10-10T17:16:04.1410420Z Button_text.png
+2025-10-10T17:16:04.1542789Z Button_up_over.png
+2025-10-10T17:16:04.1679449Z Button_up.png
+2025-10-10T17:16:04.1813637Z Cart_gg.png
+2025-10-10T17:16:04.2045442Z Cart_md.png
+2025-10-10T17:16:04.2256974Z Cart_ms.png
+2025-10-10T17:16:04.2462783Z Cart_sg.png
+2025-10-10T17:16:04.2705841Z CD_access_off.png
+2025-10-10T17:16:04.2834554Z CD_access_on.png
+2025-10-10T17:16:04.2963038Z CD_ready_off.png
+2025-10-10T17:16:04.3090455Z CD_ready_on.png
+2025-10-10T17:16:04.3220059Z Crosshair_p1.png
+2025-10-10T17:16:04.3347256Z Crosshair_p2.png
+2025-10-10T17:16:04.3473767Z Ctrl_4wayplay.png
+2025-10-10T17:16:04.3613904Z Ctrl_activator.png
+2025-10-10T17:16:04.3747087Z ctrl_classic.png
+2025-10-10T17:16:04.3873958Z Ctrl_config.png
+2025-10-10T17:16:04.4004169Z ctrl_gamecube.png
+2025-10-10T17:16:04.4133110Z Ctrl_gamepad.png
+2025-10-10T17:16:04.4272267Z Ctrl_graphic_board.png
+2025-10-10T17:16:04.4415247Z Ctrl_justifiers.png
+2025-10-10T17:16:04.4555014Z Ctrl_lightphaser.png
+2025-10-10T17:16:04.4695879Z Ctrl_mastertap.png
+2025-10-10T17:16:04.4844431Z Ctrl_menacer.png
+2025-10-10T17:16:04.4997362Z Ctrl_mouse.png
+2025-10-10T17:16:04.5138250Z Ctrl_none.png
+2025-10-10T17:16:04.5272826Z ctrl_nunchuk.png
+2025-10-10T17:16:04.5402303Z ctrl_option_off.png
+2025-10-10T17:16:04.5529685Z ctrl_option_on.png
+2025-10-10T17:16:04.5655896Z Ctrl_pad2b.png
+2025-10-10T17:16:04.5782049Z Ctrl_pad3b.png
+2025-10-10T17:16:04.5912814Z Ctrl_pad6b.png
+2025-10-10T17:16:04.6048600Z Ctrl_pad_auto.png
+2025-10-10T17:16:04.6175672Z Ctrl_paddle.png
+2025-10-10T17:16:04.6317397Z Ctrl_sportspad.png
+2025-10-10T17:16:04.6461623Z Ctrl_teamplayer.png
+2025-10-10T17:16:04.6607335Z ctrl_wiimote.png
+2025-10-10T17:16:04.6735924Z ctrl_wiiu.png
+2025-10-10T17:16:04.6866580Z Ctrl_xe_1ap.png
+2025-10-10T17:16:04.7008024Z Frame_s1.png
+2025-10-10T17:16:04.7155648Z Frame_s1_title.png
+2025-10-10T17:16:04.7297565Z Frame_s2.png
+2025-10-10T17:16:04.7435322Z Frame_s2_title.png
+2025-10-10T17:16:04.7567431Z Frame_s3.png
+2025-10-10T17:16:04.7707599Z Frame_throbber.png
+2025-10-10T17:16:04.7837074Z generic_point.png
+2025-10-10T17:16:04.7967489Z Key_A_gcn.png
+2025-10-10T17:16:04.8097579Z Key_A_wii.png
+2025-10-10T17:16:04.8227806Z Key_B_gcn.png
+2025-10-10T17:16:04.8356496Z Key_B_wii.png
+2025-10-10T17:16:04.8484798Z Key_DPAD.png
+2025-10-10T17:16:04.8615076Z Key_L_gcn.png
+2025-10-10T17:16:04.8746495Z Key_Minus_wii.png
+2025-10-10T17:16:04.8877047Z Key_Plus_wii.png
+2025-10-10T17:16:04.9006214Z Key_R_gcn.png
+2025-10-10T17:16:04.9137773Z Load_cd.png
+2025-10-10T17:16:04.9293451Z Load_gg.png
+2025-10-10T17:16:04.9438714Z Load_md.png
+2025-10-10T17:16:04.9585553Z Load_ms.png
+2025-10-10T17:16:04.9734514Z Load_recent.png
+2025-10-10T17:16:04.9879318Z Load_sg.png
+2025-10-10T17:16:05.0022105Z Main_cheats.png
+2025-10-10T17:16:05.0153935Z Main_file.png
+2025-10-10T17:16:05.0305976Z Main_load.png
+2025-10-10T17:16:05.0470038Z Main_logo.png
+2025-10-10T17:16:05.0669034Z Main_options.png
+2025-10-10T17:16:05.0820030Z Main_play_gcn.png
+2025-10-10T17:16:05.0956543Z Main_play_wii.png
+2025-10-10T17:16:05.1099571Z Main_quit.png
+2025-10-10T17:16:05.1236622Z Main_reset.png
+2025-10-10T17:16:05.1384886Z Main_showinfo.png
+2025-10-10T17:16:05.1522485Z Main_takeshot.png
+2025-10-10T17:16:05.1661774Z Option_ctrl.png
+2025-10-10T17:16:05.1827170Z Option_menu.png
+2025-10-10T17:16:05.1962976Z Option_sound.png
+2025-10-10T17:16:05.2105684Z Option_system.png
+2025-10-10T17:16:05.2264756Z Option_video.png
+2025-10-10T17:16:05.2406596Z Overlay_bar.png
+2025-10-10T17:16:05.2540485Z Snap_empty.png
+2025-10-10T17:16:05.2760146Z Star_empty.png
+2025-10-10T17:16:05.2887774Z Star_full.png
+2025-10-10T17:16:05.3018233Z button_over.pcm
+2025-10-10T17:16:05.3144036Z button_select.pcm
+2025-10-10T17:16:05.3309480Z intro.pcm
+2025-10-10T17:16:05.3617067Z gui_button.cpp
+2025-10-10T17:16:05.5593791Z gui_element.cpp
+2025-10-10T17:16:05.8144352Z gui_image.cpp
+2025-10-10T17:16:05.9477502Z /__w/genplusGC/genplusGC/gx/gui_cpp/gui_image.cpp: In member function 'virtual void GuiImage::Draw()':
+2025-10-10T17:16:05.9478506Z /__w/genplusGC/genplusGC/gx/gui_cpp/gui_image.cpp:218:30: error: 'class GuiImage' has no member named 'GetScaleX'; did you mean 'GetScale'?
+2025-10-10T17:16:05.9479159Z   218 |     float currScaleX = this->GetScaleX();
+2025-10-10T17:16:05.9479445Z       |                              ^~~~~~~~~
+2025-10-10T17:16:05.9479981Z       |                              GetScale
+2025-10-10T17:16:05.9480603Z /__w/genplusGC/genplusGC/gx/gui_cpp/gui_image.cpp:219:30: error: 'class GuiImage' has no member named 'GetScaleY'; did you mean 'GetScale'?
+2025-10-10T17:16:05.9481241Z   219 |     float currScaleY = this->GetScaleY();
+2025-10-10T17:16:05.9481517Z       |                              ^~~~~~~~~
+2025-10-10T17:16:05.9481772Z       |                              GetScale
+2025-10-10T17:16:05.9516407Z make[1]: *** [/opt/devkitpro/devkitPPC/base_rules:15: gui_image.o] Error 1
+2025-10-10T17:16:05.9519418Z make: *** [Makefile.wii:112: build_wii] Error 2
+2025-10-10T17:16:05.9560646Z ##[error]Process completed with exit code 2.

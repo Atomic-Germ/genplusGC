@@ -1,0 +1,121 @@
+﻿2025-10-10T17:15:25.3251872Z ##[group]Run cd tests
+2025-10-10T17:15:25.3252142Z [36;1mcd tests[0m
+2025-10-10T17:15:25.3252312Z [36;1mmake run[0m
+2025-10-10T17:15:25.3284045Z shell: /usr/bin/bash -e {0}
+2025-10-10T17:15:25.3284441Z ##[endgroup]
+2025-10-10T17:15:25.3365434Z 
+2025-10-10T17:15:25.3365800Z [33mRunning tests...[0m
+2025-10-10T17:15:25.3366048Z 
+2025-10-10T17:15:25.3384855Z 
+2025-10-10T17:15:25.3385021Z ========================================
+2025-10-10T17:15:25.3385452Z Genesis Plus GX Test Suite
+2025-10-10T17:15:25.3385833Z ========================================
+2025-10-10T17:15:25.3386096Z 
+2025-10-10T17:15:25.3386312Z Running: ButtonMapping_GC_SingleButtons ... PASSED
+2025-10-10T17:15:25.3386838Z Running: ButtonMapping_GC_Combinations ... PASSED
+2025-10-10T17:15:25.3387308Z Running: ButtonMapping_GC_DPad ... PASSED
+2025-10-10T17:15:25.3387751Z Running: ButtonMapping_GC_Triggers ... PASSED
+2025-10-10T17:15:25.3388416Z Running: ButtonMapping_GC_AllButtons ... PASSED
+2025-10-10T17:15:25.3388901Z Running: ButtonMapping_GC_NoButtons ... PASSED
+2025-10-10T17:15:25.3389358Z Running: ButtonMapping_Wii_WiimoteBasic ... PASSED
+2025-10-10T17:15:25.3389680Z Running: ButtonMapping_Wii_WiimoteDPad ... PASSED
+2025-10-10T17:15:25.3390010Z Running: ButtonMapping_Wii_WiimoteHomeMenu ... PASSED
+2025-10-10T17:15:25.3390324Z Running: ButtonMapping_Wii_Classic ... PASSED
+2025-10-10T17:15:25.3390623Z Running: ButtonMapping_Wii_ClassicDPad ... PASSED
+2025-10-10T17:15:25.3391133Z Running: ButtonMapping_Wii_ClassicShoulders ... PASSED
+2025-10-10T17:15:25.3391643Z Running: ButtonMapping_Wii_Nunchuk ... PASSED
+2025-10-10T17:15:25.3391984Z Running: ButtonMapping_Mask_SingleButton ... PASSED
+2025-10-10T17:15:25.3392278Z Running: ButtonMapping_Mask_Multiple ... PASSED
+2025-10-10T17:15:25.3392541Z Running: ButtonMapping_Mask_None ... PASSED
+2025-10-10T17:15:25.3392808Z Running: ButtonMapping_State_Pressed ... PASSED
+2025-10-10T17:15:25.3393200Z Running: ButtonMapping_State_Released ... PASSED
+2025-10-10T17:15:25.3393694Z Running: ButtonMapping_State_Held ... PASSED
+2025-10-10T17:15:25.3394169Z Running: ButtonMapping_State_Changed ... PASSED
+2025-10-10T17:15:25.3394656Z Running: ButtonMapping_Combo_TwoButtons ... PASSED
+2025-10-10T17:15:25.3395177Z Running: ButtonMapping_Combo_ThreeButtons ... PASSED
+2025-10-10T17:15:25.3395883Z Running: ButtonMapping_Combo_PartialMatch ... PASSED
+2025-10-10T17:15:25.3396421Z Running: ButtonMapping_Combo_ResetCombo ... PASSED
+2025-10-10T17:15:25.3396829Z Running: ButtonMapping_Direction_Opposite ... PASSED
+2025-10-10T17:15:25.3397144Z Running: ButtonMapping_Direction_LeftRight ... PASSED
+2025-10-10T17:15:25.3397454Z Running: ButtonMapping_Direction_Diagonal ... PASSED
+2025-10-10T17:15:25.3397743Z Running: ButtonMapping_Priority_Face ... PASSED
+2025-10-10T17:15:25.3398232Z Running: ButtonMapping_Priority_Triggers ... PASSED
+2025-10-10T17:15:25.3398522Z Running: ButtonMapping_Values_Unique ... PASSED
+2025-10-10T17:15:25.3398802Z Running: ButtonMapping_Values_PowerOfTwo ... PASSED
+2025-10-10T17:15:25.3399082Z Running: ButtonMapping_Values_NonZero ... PASSED
+2025-10-10T17:15:25.3399363Z Running: DummyTest_AlwaysPass ... PASSED
+2025-10-10T17:15:25.3399604Z Running: DummyTest_BasicMath ... PASSED
+2025-10-10T17:15:25.3399863Z Running: DummyTest_StringComparison ... PASSED
+2025-10-10T17:15:25.3400130Z Running: DummyTest_PointerChecks ... PASSED
+2025-10-10T17:15:25.3400392Z Running: DummyTest_MockLibOGC_Types ... PASSED
+2025-10-10T17:15:25.3400689Z Running: DummyTest_MockLibOGC_ButtonConstants ... PASSED
+2025-10-10T17:15:25.3400992Z Running: DummyTest_MockLibOGC_VideoMode ... PASSED
+2025-10-10T17:15:25.3401286Z Running: FileOp_Extension_MD ... PASSED
+2025-10-10T17:15:25.3401524Z Running: FileOp_Extension_SMD ... PASSED
+2025-10-10T17:15:25.3401758Z Running: FileOp_Extension_BIN ... PASSED
+2025-10-10T17:15:25.3401998Z Running: FileOp_Extension_GEN ... PASSED
+2025-10-10T17:15:25.3402230Z Running: FileOp_Extension_ZIP ... PASSED
+2025-10-10T17:15:25.3402478Z Running: FileOp_Extension_NoMatch ... PASSED
+2025-10-10T17:15:25.3402741Z Running: FileOp_Extension_NoExtension ... PASSED
+2025-10-10T17:15:25.3403264Z Running: FileOp_Extension_NullInput ... PASSED
+2025-10-10T17:15:25.3403520Z Running: FileOp_DevicePrefix_SD ... PASSED
+2025-10-10T17:15:25.3403921Z Running: FileOp_DevicePrefix_USB ... PASSED
+2025-10-10T17:15:25.3404175Z Running: FileOp_DevicePrefix_DVD ... PASSED
+2025-10-10T17:15:25.3404429Z Running: FileOp_DevicePrefix_CardA ... PASSED
+2025-10-10T17:15:25.3404701Z Running: FileOp_DevicePrefix_CardB ... PASSED
+2025-10-10T17:15:25.3404965Z Running: FileOp_DevicePrefix_NoPrefix ... PASSED
+2025-10-10T17:15:25.3405247Z Running: FileOp_DevicePrefix_NullInput ... PASSED
+2025-10-10T17:15:25.3405536Z Running: FileOp_Filename_UnixPath ... PASSED
+2025-10-10T17:15:25.3405844Z Running: FileOp_Filename_WindowsPath ... PASSED
+2025-10-10T17:15:25.3406114Z Running: FileOp_Filename_DevicePath ... PASSED
+2025-10-10T17:15:25.3406367Z Running: FileOp_Filename_NoPath ... PASSED
+2025-10-10T17:15:25.3406623Z Running: FileOp_Filename_NullInput ... PASSED
+2025-10-10T17:15:25.3406880Z Running: FileOp_GetExtension_MD ... PASSED
+2025-10-10T17:15:25.3407141Z Running: FileOp_GetExtension_MultiDot ... PASSED
+2025-10-10T17:15:25.3407416Z Running: FileOp_GetExtension_NoExtension ... PASSED
+2025-10-10T17:15:25.3407708Z Running: FileOp_GetExtension_NullInput ... PASSED
+2025-10-10T17:15:25.3408164Z Running: FileOp_Path_ValidAbsolute ... PASSED
+2025-10-10T17:15:25.3408427Z Running: FileOp_Path_ValidDevice ... PASSED
+2025-10-10T17:15:25.3408679Z Running: FileOp_Path_Length ... PASSED
+2025-10-10T17:15:25.3408961Z Running: FileOp_Workflow_CompletePathProcessing ... PASSED
+2025-10-10T17:15:25.3409288Z Running: FileOp_Workflow_WindowsStylePath ... PASSED
+2025-10-10T17:15:25.3409564Z Running: VideoMode_Constants_Unique ... PASSED
+2025-10-10T17:15:25.3409850Z Running: VideoMode_Constants_NTSC ... PASSED
+2025-10-10T17:15:25.3410099Z Running: VideoMode_Constants_PAL ... PASSED
+2025-10-10T17:15:25.3410347Z Running: VideoMode_Constants_RGB ... PASSED
+2025-10-10T17:15:25.3410601Z Running: VideoMode_Structure_NTSC480i ... PASSED
+2025-10-10T17:15:25.3410875Z Running: VideoMode_Structure_NTSC480p ... PASSED
+2025-10-10T17:15:25.3411147Z Running: VideoMode_Structure_PAL576i ... PASSED
+2025-10-10T17:15:25.3411474Z Running: VideoMode_Structure_RGB60 ... PASSED
+2025-10-10T17:15:25.3411804Z Running: VideoMode_Resolution_StandardWidth ... PASSED
+2025-10-10T17:15:25.3474194Z Running: VideoMode_Resolution_NTSCHeight ... PASSED
+2025-10-10T17:15:25.3474539Z Running: VideoMode_Resolution_PALHeight ... PASSED
+2025-10-10T17:15:25.3474934Z Running: VideoMode_Resolution_FramebufferMatch ... PASSED
+2025-10-10T17:15:25.3475305Z Running: VideoMode_Detection_NTSC ... PASSED
+2025-10-10T17:15:25.3475620Z Running: VideoMode_Detection_PAL ... PASSED
+2025-10-10T17:15:25.3475930Z Running: VideoMode_Detection_Progressive ... PASSED
+2025-10-10T17:15:25.3476244Z Running: VideoMode_Detection_Resolution ... PASSED
+2025-10-10T17:15:25.3476535Z Running: VideoMode_AspectRatio_NTSC ... PASSED
+2025-10-10T17:15:25.3476803Z Running: VideoMode_AspectRatio_PAL ... PASSED
+2025-10-10T17:15:25.3477142Z Running: VideoMode_AspectRatio_Progressive ... PASSED
+2025-10-10T17:15:25.3477472Z Running: VideoMode_Compatibility_GameCube ... PASSED
+2025-10-10T17:15:25.3477783Z Running: VideoMode_Compatibility_Wii ... PASSED
+2025-10-10T17:15:25.3478339Z Running: VideoMode_RefreshRate_NTSC ... PASSED
+2025-10-10T17:15:25.3478612Z Running: VideoMode_RefreshRate_PAL ... PASSED
+2025-10-10T17:15:25.3478878Z Running: VideoMode_RefreshRate_RGB60 ... PASSED
+2025-10-10T17:15:25.3479168Z Running: VideoMode_Selection_NTSC_Interlaced ... PASSED
+2025-10-10T17:15:25.3479515Z Running: VideoMode_Selection_NTSC_Progressive ... PASSED
+2025-10-10T17:15:25.3479818Z Running: VideoMode_Selection_PAL ... PASSED
+2025-10-10T17:15:25.3480136Z Running: VideoMode_Selection_PAL_NoProgressive ... PASSED
+2025-10-10T17:15:25.3480446Z Running: VideoMode_Origin_Default ... PASSED
+2025-10-10T17:15:25.3480712Z Running: VideoMode_Dimensions_Valid ... PASSED
+2025-10-10T17:15:25.3480890Z 
+2025-10-10T17:15:25.3481172Z ========================================
+2025-10-10T17:15:25.3481384Z Test Results:
+2025-10-10T17:15:25.3481546Z   Total:  98
+2025-10-10T17:15:25.3481697Z   Passed: 98
+2025-10-10T17:15:25.3481969Z   Failed: 0
+2025-10-10T17:15:25.3482121Z ========================================
+2025-10-10T17:15:25.3482275Z 
+2025-10-10T17:15:25.3482279Z 
+2025-10-10T17:15:25.3482514Z [32mAll tests passed![0m

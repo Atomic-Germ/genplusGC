@@ -22,22 +22,29 @@ GuiSound::~GuiSound()
 
 void GuiSound::Play()
 {
-    // Placeholder - will integrate with actual audio system later
+    if (!sound || !length)
+        return;
+    
+    // TODO: Integrate with ASND audio system
+    // ASND_SetVoice(voice, VOICE_MONO_16BIT, frequency, 0, sound, length, volume, volume, NULL);
 }
 
 void GuiSound::Stop()
 {
-    // Placeholder
+    // TODO: Stop ASND voice
+    // ASND_StopVoice(voice);
 }
 
 void GuiSound::Pause()
 {
-    // Placeholder
+    // TODO: Pause ASND voice
+    // ASND_PauseVoice(voice, 1);
 }
 
 void GuiSound::Resume()
 {
-    // Placeholder
+    // TODO: Resume ASND voice
+    // ASND_PauseVoice(voice, 0);
 }
 
 bool GuiSound::IsPlaying()
