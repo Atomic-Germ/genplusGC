@@ -124,12 +124,14 @@ int MenuMain()
         if (loadGameBtn.GetState() == STATE_CLICKED)
         {
             loadGameBtn.ResetState();
-            menu = MENU_LOAD_GAME;
+            // TODO: Call MenuLoadGame() when implemented
+            // For now, just stay in menu
         }
         else if (settingsBtn.GetState() == STATE_CLICKED)
         {
             settingsBtn.ResetState();
-            menu = MENU_SETTINGS;
+            // TODO: Call MenuSettings() when implemented
+            // For now, just stay in menu
         }
         else if (quitBtn.GetState() == STATE_CLICKED)
         {
@@ -157,9 +159,9 @@ int MenuMain()
  */
 int MenuLoadGame()
 {
-    /* For now, just return to main menu */
-    /* Will implement file browser later */
-    return MENU_NONE;
+    /* TODO: Implement file browser */
+    /* For now, return to main menu */
+    return MENU_EXIT;
 }
 
 /**
@@ -169,7 +171,7 @@ int MenuLoadGame()
  */
 int MenuSettings()
 {
-    /* For now, just return to main menu */
-    /* Will implement settings browser later */
-    return MENU_NONE;
+    /* TODO: Implement settings browser */
+    /* For now, return to main menu */
+    return MENU_EXIT;
 }
