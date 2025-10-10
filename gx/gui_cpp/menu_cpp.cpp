@@ -146,6 +146,10 @@ int MenuMain()
         /* Draw a test rectangle to verify rendering */
         gxDrawRectangle(100, 100, 440, 280, 255, (GXColor){80, 80, 120, 255});
         
+        /* Test direct font rendering */
+        FONT_write("Direct Font Test", 20, 220, 150, 200, (GXColor){255, 255, 255, 255});
+        FONT_writeCenter("Centered Text", 18, 100, 540, 200, (GXColor){255, 255, 0, 255});
+        
         /* Draw GUI */
         mainWindow.Draw();
         
