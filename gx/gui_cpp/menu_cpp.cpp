@@ -47,7 +47,8 @@ int MenuMain()
     
     /* Create main window */
     GuiWindow mainWindow(640, 480);
-    mainWindow.SetAlignment(ALIGN_CENTRE, ALIGN_MIDDLE);
+    mainWindow.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+    mainWindow.SetPosition(0, 0);  // Position at screen origin
     
     /* Title text */
     GuiText titleText("Genesis Plus GX", 28, (GXColor){255, 255, 255, 255});
