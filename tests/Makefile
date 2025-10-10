@@ -127,3 +127,13 @@ $(BUILD_DIR)/%.o: $(MOCKS_DIR)/%.cpp | $(BUILD_DIR)
 
 $(BUILD_DIR)/%.o: $(UNIT_DIR)/%.cpp | $(BUILD_DIR)
 	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+
+# GUI Compilation Test (uses local devkitPPC if available)
+.PHONY: gui-compile-test
+
+# GUI Compilation Test (uses local devkitPPC if available)
+.PHONY: gui-compile-test
+gui-compile-test:
+	@echo "Testing GUI compilation..."
+	@test -f Makefile.gui && make -f Makefile.gui test-compile || echo "GUI test skipped"

@@ -1,0 +1,359 @@
+﻿2025-10-10T17:15:01.3900886Z Current runner version: '2.328.0'
+2025-10-10T17:15:01.3934787Z ##[group]Runner Image Provisioner
+2025-10-10T17:15:01.3935925Z Hosted Compute Agent
+2025-10-10T17:15:01.3936901Z Version: 20250912.392
+2025-10-10T17:15:01.3937882Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-10-10T17:15:01.3939374Z Build Date: 2025-09-12T15:23:14Z
+2025-10-10T17:15:01.3940479Z ##[endgroup]
+2025-10-10T17:15:01.3941306Z ##[group]Operating System
+2025-10-10T17:15:01.3942276Z Ubuntu
+2025-10-10T17:15:01.3943119Z 24.04.3
+2025-10-10T17:15:01.3943903Z LTS
+2025-10-10T17:15:01.3944625Z ##[endgroup]
+2025-10-10T17:15:01.3945496Z ##[group]Runner Image
+2025-10-10T17:15:01.3946374Z Image: ubuntu-24.04
+2025-10-10T17:15:01.3947273Z Version: 20250929.60.1
+2025-10-10T17:15:01.3949470Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250929.60/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-10T17:15:01.3952280Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250929.60
+2025-10-10T17:15:01.3954062Z ##[endgroup]
+2025-10-10T17:15:01.3955999Z ##[group]GITHUB_TOKEN Permissions
+2025-10-10T17:15:01.3958754Z Contents: read
+2025-10-10T17:15:01.3959821Z Metadata: read
+2025-10-10T17:15:01.3960677Z Packages: read
+2025-10-10T17:15:01.3961447Z ##[endgroup]
+2025-10-10T17:15:01.3964481Z Secret source: Actions
+2025-10-10T17:15:01.3965545Z Prepare workflow directory
+2025-10-10T17:15:01.4296115Z Prepare all required actions
+2025-10-10T17:15:01.4334232Z Getting action download info
+2025-10-10T17:15:01.7555777Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-10-10T17:15:01.9684555Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2025-10-10T17:15:02.1629243Z Complete job name: Unit Tests
+2025-10-10T17:15:02.2302605Z ##[group]Run actions/checkout@v4
+2025-10-10T17:15:02.2303422Z with:
+2025-10-10T17:15:02.2303832Z   repository: Atomic-Germ/genplusGC
+2025-10-10T17:15:02.2304492Z   token: ***
+2025-10-10T17:15:02.2304888Z   ssh-strict: true
+2025-10-10T17:15:02.2305284Z   ssh-user: git
+2025-10-10T17:15:02.2305684Z   persist-credentials: true
+2025-10-10T17:15:02.2306129Z   clean: true
+2025-10-10T17:15:02.2306519Z   sparse-checkout-cone-mode: true
+2025-10-10T17:15:02.2306989Z   fetch-depth: 1
+2025-10-10T17:15:02.2307367Z   fetch-tags: false
+2025-10-10T17:15:02.2307767Z   show-progress: true
+2025-10-10T17:15:02.2308330Z   lfs: false
+2025-10-10T17:15:02.2308692Z   submodules: false
+2025-10-10T17:15:02.2309093Z   set-safe-directory: true
+2025-10-10T17:15:02.2309766Z ##[endgroup]
+2025-10-10T17:15:02.3410451Z Syncing repository: Atomic-Germ/genplusGC
+2025-10-10T17:15:02.3412247Z ##[group]Getting Git version info
+2025-10-10T17:15:02.3413105Z Working directory is '/home/runner/work/genplusGC/genplusGC'
+2025-10-10T17:15:02.3414782Z [command]/usr/bin/git version
+2025-10-10T17:15:02.3484674Z git version 2.51.0
+2025-10-10T17:15:02.3511971Z ##[endgroup]
+2025-10-10T17:15:02.3530316Z Temporarily overriding HOME='/home/runner/work/_temp/270144b1-9f5a-43d1-b0e0-a2b39cbb3c81' before making global git config changes
+2025-10-10T17:15:02.3532678Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-10T17:15:02.3536794Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genplusGC/genplusGC
+2025-10-10T17:15:02.3575261Z Deleting the contents of '/home/runner/work/genplusGC/genplusGC'
+2025-10-10T17:15:02.3579180Z ##[group]Initializing the repository
+2025-10-10T17:15:02.3583894Z [command]/usr/bin/git init /home/runner/work/genplusGC/genplusGC
+2025-10-10T17:15:02.3690559Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-10T17:15:02.3691515Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-10T17:15:02.3692403Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-10T17:15:02.3693043Z hint:
+2025-10-10T17:15:02.3693649Z hint: 	git config --global init.defaultBranch <name>
+2025-10-10T17:15:02.3694632Z hint:
+2025-10-10T17:15:02.3695498Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-10T17:15:02.3696494Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-10T17:15:02.3697185Z hint:
+2025-10-10T17:15:02.3697571Z hint: 	git branch -m <name>
+2025-10-10T17:15:02.3698160Z hint:
+2025-10-10T17:15:02.3698743Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-10-10T17:15:02.3699700Z Initialized empty Git repository in /home/runner/work/genplusGC/genplusGC/.git/
+2025-10-10T17:15:02.3706457Z [command]/usr/bin/git remote add origin https://github.com/Atomic-Germ/genplusGC
+2025-10-10T17:15:02.3744005Z ##[endgroup]
+2025-10-10T17:15:02.3745210Z ##[group]Disabling automatic garbage collection
+2025-10-10T17:15:02.3748832Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-10T17:15:02.3780642Z ##[endgroup]
+2025-10-10T17:15:02.3781296Z ##[group]Setting up auth
+2025-10-10T17:15:02.3787412Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-10T17:15:02.3817909Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-10T17:15:02.4170340Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-10T17:15:02.4202439Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-10T17:15:02.4448951Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-10T17:15:02.4490797Z ##[endgroup]
+2025-10-10T17:15:02.4492393Z ##[group]Fetching the repository
+2025-10-10T17:15:02.4499145Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +097e33e310906d1f5dd05bd406d8322d72a28a92:refs/remotes/origin/phase4-hardware-integration
+2025-10-10T17:15:03.4809776Z From https://github.com/Atomic-Germ/genplusGC
+2025-10-10T17:15:03.4811771Z  * [new ref]         097e33e310906d1f5dd05bd406d8322d72a28a92 -> origin/phase4-hardware-integration
+2025-10-10T17:15:03.4845080Z ##[endgroup]
+2025-10-10T17:15:03.4846385Z ##[group]Determining the checkout info
+2025-10-10T17:15:03.4848431Z ##[endgroup]
+2025-10-10T17:15:03.4852875Z [command]/usr/bin/git sparse-checkout disable
+2025-10-10T17:15:03.4894779Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-10T17:15:03.4925181Z ##[group]Checking out the ref
+2025-10-10T17:15:03.4929731Z [command]/usr/bin/git checkout --progress --force -B phase4-hardware-integration refs/remotes/origin/phase4-hardware-integration
+2025-10-10T17:15:03.6828681Z Switched to a new branch 'phase4-hardware-integration'
+2025-10-10T17:15:03.6830444Z branch 'phase4-hardware-integration' set up to track 'origin/phase4-hardware-integration'.
+2025-10-10T17:15:03.6848548Z ##[endgroup]
+2025-10-10T17:15:03.6887237Z [command]/usr/bin/git log -1 --format=%H
+2025-10-10T17:15:03.6910287Z 097e33e310906d1f5dd05bd406d8322d72a28a92
+2025-10-10T17:15:03.7117696Z ##[group]Run sudo apt-get update
+2025-10-10T17:15:03.7119342Z [36;1msudo apt-get update[0m
+2025-10-10T17:15:03.7120680Z [36;1msudo apt-get install -y build-essential g++[0m
+2025-10-10T17:15:03.7158481Z shell: /usr/bin/bash -e {0}
+2025-10-10T17:15:03.7159646Z ##[endgroup]
+2025-10-10T17:15:03.8720625Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2025-10-10T17:15:03.9091738Z Hit:6 https://packages.microsoft.com/repos/azure-cli noble InRelease
+2025-10-10T17:15:03.9095440Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2025-10-10T17:15:03.9099149Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2025-10-10T17:15:03.9118749Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2025-10-10T17:15:03.9174862Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2025-10-10T17:15:03.9200158Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2025-10-10T17:15:04.1381823Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [62.0 kB]
+2025-10-10T17:15:04.1583493Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [10.8 kB]
+2025-10-10T17:15:04.1607807Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [44.5 kB]
+2025-10-10T17:15:04.1772270Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1491 kB]
+2025-10-10T17:15:04.1864838Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [287 kB]
+2025-10-10T17:15:04.1890714Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+2025-10-10T17:15:04.1911199Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [15.3 kB]
+2025-10-10T17:15:04.1922160Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1490 kB]
+2025-10-10T17:15:04.2008616Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [301 kB]
+2025-10-10T17:15:04.2040338Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [377 kB]
+2025-10-10T17:15:04.2069768Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [31.1 kB]
+2025-10-10T17:15:04.2081450Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2068 kB]
+2025-10-10T17:15:04.2202092Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [467 kB]
+2025-10-10T17:15:04.2667873Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+2025-10-10T17:15:04.2674860Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [6116 B]
+2025-10-10T17:15:04.2684072Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2025-10-10T17:15:04.2692711Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7140 B]
+2025-10-10T17:15:04.2703473Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.0 kB]
+2025-10-10T17:15:04.2715333Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+2025-10-10T17:15:04.2724502Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+2025-10-10T17:15:04.2893078Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1213 kB]
+2025-10-10T17:15:04.2968624Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [202 kB]
+2025-10-10T17:15:04.2990989Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+2025-10-10T17:15:04.3002888Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [8748 B]
+2025-10-10T17:15:04.3015967Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [882 kB]
+2025-10-10T17:15:04.3111965Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [196 kB]
+2025-10-10T17:15:04.3135692Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [52.2 kB]
+2025-10-10T17:15:04.3618911Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [18.1 kB]
+2025-10-10T17:15:04.3638781Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1967 kB]
+2025-10-10T17:15:04.3745547Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [448 kB]
+2025-10-10T17:15:04.3777235Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [208 B]
+2025-10-10T17:15:04.3790351Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [5844 B]
+2025-10-10T17:15:04.3801264Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+2025-10-10T17:15:13.3608428Z Fetched 12.2 MB in 2s (7958 kB/s)
+2025-10-10T17:15:14.0865032Z Reading package lists...
+2025-10-10T17:15:14.1182389Z Reading package lists...
+2025-10-10T17:15:14.2880934Z Building dependency tree...
+2025-10-10T17:15:14.2888151Z Reading state information...
+2025-10-10T17:15:14.4727149Z g++ is already the newest version (4:13.2.0-7ubuntu1).
+2025-10-10T17:15:14.4728268Z The following NEW packages will be installed:
+2025-10-10T17:15:14.4734375Z   build-essential
+2025-10-10T17:15:14.4908967Z 0 upgraded, 1 newly installed, 0 to remove and 35 not upgraded.
+2025-10-10T17:15:14.4909403Z Need to get 4928 B of archives.
+2025-10-10T17:15:14.4909744Z After this operation, 17.4 kB of additional disk space will be used.
+2025-10-10T17:15:14.4910354Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2025-10-10T17:15:14.5519201Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 build-essential amd64 12.10ubuntu1 [4928 B]
+2025-10-10T17:15:14.8165933Z Fetched 4928 B in 0s (68.3 kB/s)
+2025-10-10T17:15:14.8773886Z Selecting previously unselected package build-essential.
+2025-10-10T17:15:14.9284796Z (Reading database ... 
+2025-10-10T17:15:14.9285250Z (Reading database ... 5%
+2025-10-10T17:15:14.9285684Z (Reading database ... 10%
+2025-10-10T17:15:14.9285917Z (Reading database ... 15%
+2025-10-10T17:15:14.9286130Z (Reading database ... 20%
+2025-10-10T17:15:14.9286353Z (Reading database ... 25%
+2025-10-10T17:15:14.9286572Z (Reading database ... 30%
+2025-10-10T17:15:14.9286774Z (Reading database ... 35%
+2025-10-10T17:15:14.9287079Z (Reading database ... 40%
+2025-10-10T17:15:14.9287433Z (Reading database ... 45%
+2025-10-10T17:15:14.9287775Z (Reading database ... 50%
+2025-10-10T17:15:15.0415046Z (Reading database ... 55%
+2025-10-10T17:15:15.7506961Z (Reading database ... 60%
+2025-10-10T17:15:16.3805553Z (Reading database ... 65%
+2025-10-10T17:15:17.0285823Z (Reading database ... 70%
+2025-10-10T17:15:17.6944100Z (Reading database ... 75%
+2025-10-10T17:15:18.3396725Z (Reading database ... 80%
+2025-10-10T17:15:19.0383282Z (Reading database ... 85%
+2025-10-10T17:15:19.8880589Z (Reading database ... 90%
+2025-10-10T17:15:20.6201251Z (Reading database ... 95%
+2025-10-10T17:15:20.6201990Z (Reading database ... 100%
+2025-10-10T17:15:20.6202971Z (Reading database ... 214596 files and directories currently installed.)
+2025-10-10T17:15:20.6246952Z Preparing to unpack .../build-essential_12.10ubuntu1_amd64.deb ...
+2025-10-10T17:15:20.6275689Z Unpacking build-essential (12.10ubuntu1) ...
+2025-10-10T17:15:20.6695905Z Setting up build-essential (12.10ubuntu1) ...
+2025-10-10T17:15:22.1382145Z 
+2025-10-10T17:15:22.1382864Z Running kernel seems to be up-to-date.
+2025-10-10T17:15:22.1383282Z 
+2025-10-10T17:15:22.1383456Z Restarting services...
+2025-10-10T17:15:22.1469792Z 
+2025-10-10T17:15:22.1470442Z Service restarts being deferred:
+2025-10-10T17:15:22.1476055Z  systemctl restart hosted-compute-agent.service
+2025-10-10T17:15:22.1476460Z 
+2025-10-10T17:15:22.1476611Z No containers need to be restarted.
+2025-10-10T17:15:22.1480556Z 
+2025-10-10T17:15:22.1481285Z No user sessions are running outdated binaries.
+2025-10-10T17:15:22.1481529Z 
+2025-10-10T17:15:22.1481721Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2025-10-10T17:15:23.1043969Z ##[group]Run cd tests
+2025-10-10T17:15:23.1044221Z [36;1mcd tests[0m
+2025-10-10T17:15:23.1044395Z [36;1mmake tests[0m
+2025-10-10T17:15:23.1077645Z shell: /usr/bin/bash -e {0}
+2025-10-10T17:15:23.1077867Z ##[endgroup]
+2025-10-10T17:15:25.2580846Z [33mLinking:[0m build/test_runner
+2025-10-10T17:15:25.3222000Z [32mBuild complete:[0m build/test_runner
+2025-10-10T17:15:25.3251883Z ##[group]Run cd tests
+2025-10-10T17:15:25.3252145Z [36;1mcd tests[0m
+2025-10-10T17:15:25.3252314Z [36;1mmake run[0m
+2025-10-10T17:15:25.3284051Z shell: /usr/bin/bash -e {0}
+2025-10-10T17:15:25.3284444Z ##[endgroup]
+2025-10-10T17:15:25.3365454Z 
+2025-10-10T17:15:25.3365805Z [33mRunning tests...[0m
+2025-10-10T17:15:25.3366050Z 
+2025-10-10T17:15:25.3384871Z 
+2025-10-10T17:15:25.3385025Z ========================================
+2025-10-10T17:15:25.3385456Z Genesis Plus GX Test Suite
+2025-10-10T17:15:25.3385836Z ========================================
+2025-10-10T17:15:25.3386100Z 
+2025-10-10T17:15:25.3386316Z Running: ButtonMapping_GC_SingleButtons ... PASSED
+2025-10-10T17:15:25.3386843Z Running: ButtonMapping_GC_Combinations ... PASSED
+2025-10-10T17:15:25.3387311Z Running: ButtonMapping_GC_DPad ... PASSED
+2025-10-10T17:15:25.3387754Z Running: ButtonMapping_GC_Triggers ... PASSED
+2025-10-10T17:15:25.3388422Z Running: ButtonMapping_GC_AllButtons ... PASSED
+2025-10-10T17:15:25.3388952Z Running: ButtonMapping_GC_NoButtons ... PASSED
+2025-10-10T17:15:25.3389360Z Running: ButtonMapping_Wii_WiimoteBasic ... PASSED
+2025-10-10T17:15:25.3389682Z Running: ButtonMapping_Wii_WiimoteDPad ... PASSED
+2025-10-10T17:15:25.3390012Z Running: ButtonMapping_Wii_WiimoteHomeMenu ... PASSED
+2025-10-10T17:15:25.3390326Z Running: ButtonMapping_Wii_Classic ... PASSED
+2025-10-10T17:15:25.3390625Z Running: ButtonMapping_Wii_ClassicDPad ... PASSED
+2025-10-10T17:15:25.3391137Z Running: ButtonMapping_Wii_ClassicShoulders ... PASSED
+2025-10-10T17:15:25.3391647Z Running: ButtonMapping_Wii_Nunchuk ... PASSED
+2025-10-10T17:15:25.3391987Z Running: ButtonMapping_Mask_SingleButton ... PASSED
+2025-10-10T17:15:25.3392280Z Running: ButtonMapping_Mask_Multiple ... PASSED
+2025-10-10T17:15:25.3392543Z Running: ButtonMapping_Mask_None ... PASSED
+2025-10-10T17:15:25.3392810Z Running: ButtonMapping_State_Pressed ... PASSED
+2025-10-10T17:15:25.3393205Z Running: ButtonMapping_State_Released ... PASSED
+2025-10-10T17:15:25.3393706Z Running: ButtonMapping_State_Held ... PASSED
+2025-10-10T17:15:25.3394173Z Running: ButtonMapping_State_Changed ... PASSED
+2025-10-10T17:15:25.3394659Z Running: ButtonMapping_Combo_TwoButtons ... PASSED
+2025-10-10T17:15:25.3395181Z Running: ButtonMapping_Combo_ThreeButtons ... PASSED
+2025-10-10T17:15:25.3395891Z Running: ButtonMapping_Combo_PartialMatch ... PASSED
+2025-10-10T17:15:25.3396428Z Running: ButtonMapping_Combo_ResetCombo ... PASSED
+2025-10-10T17:15:25.3396833Z Running: ButtonMapping_Direction_Opposite ... PASSED
+2025-10-10T17:15:25.3397147Z Running: ButtonMapping_Direction_LeftRight ... PASSED
+2025-10-10T17:15:25.3397456Z Running: ButtonMapping_Direction_Diagonal ... PASSED
+2025-10-10T17:15:25.3397745Z Running: ButtonMapping_Priority_Face ... PASSED
+2025-10-10T17:15:25.3398235Z Running: ButtonMapping_Priority_Triggers ... PASSED
+2025-10-10T17:15:25.3398524Z Running: ButtonMapping_Values_Unique ... PASSED
+2025-10-10T17:15:25.3398804Z Running: ButtonMapping_Values_PowerOfTwo ... PASSED
+2025-10-10T17:15:25.3399091Z Running: ButtonMapping_Values_NonZero ... PASSED
+2025-10-10T17:15:25.3399365Z Running: DummyTest_AlwaysPass ... PASSED
+2025-10-10T17:15:25.3399606Z Running: DummyTest_BasicMath ... PASSED
+2025-10-10T17:15:25.3399866Z Running: DummyTest_StringComparison ... PASSED
+2025-10-10T17:15:25.3400132Z Running: DummyTest_PointerChecks ... PASSED
+2025-10-10T17:15:25.3400394Z Running: DummyTest_MockLibOGC_Types ... PASSED
+2025-10-10T17:15:25.3400691Z Running: DummyTest_MockLibOGC_ButtonConstants ... PASSED
+2025-10-10T17:15:25.3400994Z Running: DummyTest_MockLibOGC_VideoMode ... PASSED
+2025-10-10T17:15:25.3401288Z Running: FileOp_Extension_MD ... PASSED
+2025-10-10T17:15:25.3401526Z Running: FileOp_Extension_SMD ... PASSED
+2025-10-10T17:15:25.3401760Z Running: FileOp_Extension_BIN ... PASSED
+2025-10-10T17:15:25.3402000Z Running: FileOp_Extension_GEN ... PASSED
+2025-10-10T17:15:25.3402232Z Running: FileOp_Extension_ZIP ... PASSED
+2025-10-10T17:15:25.3402480Z Running: FileOp_Extension_NoMatch ... PASSED
+2025-10-10T17:15:25.3402975Z Running: FileOp_Extension_NoExtension ... PASSED
+2025-10-10T17:15:25.3403267Z Running: FileOp_Extension_NullInput ... PASSED
+2025-10-10T17:15:25.3403521Z Running: FileOp_DevicePrefix_SD ... PASSED
+2025-10-10T17:15:25.3403923Z Running: FileOp_DevicePrefix_USB ... PASSED
+2025-10-10T17:15:25.3404177Z Running: FileOp_DevicePrefix_DVD ... PASSED
+2025-10-10T17:15:25.3404431Z Running: FileOp_DevicePrefix_CardA ... PASSED
+2025-10-10T17:15:25.3404703Z Running: FileOp_DevicePrefix_CardB ... PASSED
+2025-10-10T17:15:25.3404966Z Running: FileOp_DevicePrefix_NoPrefix ... PASSED
+2025-10-10T17:15:25.3405249Z Running: FileOp_DevicePrefix_NullInput ... PASSED
+2025-10-10T17:15:25.3405537Z Running: FileOp_Filename_UnixPath ... PASSED
+2025-10-10T17:15:25.3405846Z Running: FileOp_Filename_WindowsPath ... PASSED
+2025-10-10T17:15:25.3406116Z Running: FileOp_Filename_DevicePath ... PASSED
+2025-10-10T17:15:25.3406369Z Running: FileOp_Filename_NoPath ... PASSED
+2025-10-10T17:15:25.3406630Z Running: FileOp_Filename_NullInput ... PASSED
+2025-10-10T17:15:25.3406883Z Running: FileOp_GetExtension_MD ... PASSED
+2025-10-10T17:15:25.3407143Z Running: FileOp_GetExtension_MultiDot ... PASSED
+2025-10-10T17:15:25.3407423Z Running: FileOp_GetExtension_NoExtension ... PASSED
+2025-10-10T17:15:25.3407710Z Running: FileOp_GetExtension_NullInput ... PASSED
+2025-10-10T17:15:25.3408167Z Running: FileOp_Path_ValidAbsolute ... PASSED
+2025-10-10T17:15:25.3408430Z Running: FileOp_Path_ValidDevice ... PASSED
+2025-10-10T17:15:25.3408681Z Running: FileOp_Path_Length ... PASSED
+2025-10-10T17:15:25.3408963Z Running: FileOp_Workflow_CompletePathProcessing ... PASSED
+2025-10-10T17:15:25.3409290Z Running: FileOp_Workflow_WindowsStylePath ... PASSED
+2025-10-10T17:15:25.3409566Z Running: VideoMode_Constants_Unique ... PASSED
+2025-10-10T17:15:25.3409852Z Running: VideoMode_Constants_NTSC ... PASSED
+2025-10-10T17:15:25.3410107Z Running: VideoMode_Constants_PAL ... PASSED
+2025-10-10T17:15:25.3410349Z Running: VideoMode_Constants_RGB ... PASSED
+2025-10-10T17:15:25.3410609Z Running: VideoMode_Structure_NTSC480i ... PASSED
+2025-10-10T17:15:25.3410877Z Running: VideoMode_Structure_NTSC480p ... PASSED
+2025-10-10T17:15:25.3411148Z Running: VideoMode_Structure_PAL576i ... PASSED
+2025-10-10T17:15:25.3411476Z Running: VideoMode_Structure_RGB60 ... PASSED
+2025-10-10T17:15:25.3411806Z Running: VideoMode_Resolution_StandardWidth ... PASSED
+2025-10-10T17:15:25.3474202Z Running: VideoMode_Resolution_NTSCHeight ... PASSED
+2025-10-10T17:15:25.3474541Z Running: VideoMode_Resolution_PALHeight ... PASSED
+2025-10-10T17:15:25.3474936Z Running: VideoMode_Resolution_FramebufferMatch ... PASSED
+2025-10-10T17:15:25.3475307Z Running: VideoMode_Detection_NTSC ... PASSED
+2025-10-10T17:15:25.3475622Z Running: VideoMode_Detection_PAL ... PASSED
+2025-10-10T17:15:25.3475932Z Running: VideoMode_Detection_Progressive ... PASSED
+2025-10-10T17:15:25.3476246Z Running: VideoMode_Detection_Resolution ... PASSED
+2025-10-10T17:15:25.3476537Z Running: VideoMode_AspectRatio_NTSC ... PASSED
+2025-10-10T17:15:25.3476817Z Running: VideoMode_AspectRatio_PAL ... PASSED
+2025-10-10T17:15:25.3477144Z Running: VideoMode_AspectRatio_Progressive ... PASSED
+2025-10-10T17:15:25.3477474Z Running: VideoMode_Compatibility_GameCube ... PASSED
+2025-10-10T17:15:25.3477785Z Running: VideoMode_Compatibility_Wii ... PASSED
+2025-10-10T17:15:25.3478343Z Running: VideoMode_RefreshRate_NTSC ... PASSED
+2025-10-10T17:15:25.3478615Z Running: VideoMode_RefreshRate_PAL ... PASSED
+2025-10-10T17:15:25.3478880Z Running: VideoMode_RefreshRate_RGB60 ... PASSED
+2025-10-10T17:15:25.3479170Z Running: VideoMode_Selection_NTSC_Interlaced ... PASSED
+2025-10-10T17:15:25.3479517Z Running: VideoMode_Selection_NTSC_Progressive ... PASSED
+2025-10-10T17:15:25.3479820Z Running: VideoMode_Selection_PAL ... PASSED
+2025-10-10T17:15:25.3480138Z Running: VideoMode_Selection_PAL_NoProgressive ... PASSED
+2025-10-10T17:15:25.3480448Z Running: VideoMode_Origin_Default ... PASSED
+2025-10-10T17:15:25.3480714Z Running: VideoMode_Dimensions_Valid ... PASSED
+2025-10-10T17:15:25.3481090Z 
+2025-10-10T17:15:25.3481174Z ========================================
+2025-10-10T17:15:25.3481387Z Test Results:
+2025-10-10T17:15:25.3481547Z   Total:  98
+2025-10-10T17:15:25.3481698Z   Passed: 98
+2025-10-10T17:15:25.3481971Z   Failed: 0
+2025-10-10T17:15:25.3482123Z ========================================
+2025-10-10T17:15:25.3482277Z 
+2025-10-10T17:15:25.3482281Z 
+2025-10-10T17:15:25.3482517Z [32mAll tests passed![0m
+2025-10-10T17:15:25.3528714Z ##[group]Run actions/upload-artifact@v4
+2025-10-10T17:15:25.3528984Z with:
+2025-10-10T17:15:25.3529150Z   name: test-results
+2025-10-10T17:15:25.3529345Z   path: tests/test-results.txt
+2025-10-10T17:15:25.3529547Z   retention-days: 5
+2025-10-10T17:15:25.3529722Z   if-no-files-found: warn
+2025-10-10T17:15:25.3529920Z   compression-level: 6
+2025-10-10T17:15:25.3530105Z   overwrite: false
+2025-10-10T17:15:25.3530291Z   include-hidden-files: false
+2025-10-10T17:15:25.3530493Z ##[endgroup]
+2025-10-10T17:15:25.5629719Z With the provided path, there will be 1 file uploaded
+2025-10-10T17:15:25.5635387Z Artifact name is valid!
+2025-10-10T17:15:25.5636534Z Root directory input is valid!
+2025-10-10T17:15:25.7395984Z Beginning upload of artifact content to blob storage
+2025-10-10T17:15:25.9271755Z Uploaded bytes 1024
+2025-10-10T17:15:25.9773397Z Finished uploading artifact content to blob storage!
+2025-10-10T17:15:25.9776961Z SHA256 digest of uploaded artifact zip is d11a93ed8b96c67fdea315775ac54c438f8e46ece1f995daaceaceddfebf8b26
+2025-10-10T17:15:25.9778427Z Finalizing artifact upload
+2025-10-10T17:15:26.0865782Z Artifact test-results.zip successfully finalized. Artifact ID 4239679910
+2025-10-10T17:15:26.0866881Z Artifact test-results has been successfully uploaded! Final size is 1024 bytes. Artifact ID is 4239679910
+2025-10-10T17:15:26.0873935Z Artifact download URL: https://github.com/Atomic-Germ/genplusGC/actions/runs/18413481361/artifacts/4239679910
+2025-10-10T17:15:26.1017362Z Post job cleanup.
+2025-10-10T17:15:26.1939624Z [command]/usr/bin/git version
+2025-10-10T17:15:26.1980285Z git version 2.51.0
+2025-10-10T17:15:26.2029161Z Temporarily overriding HOME='/home/runner/work/_temp/47792ba5-b83d-4023-aa61-204fb905ae58' before making global git config changes
+2025-10-10T17:15:26.2030431Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-10T17:15:26.2035562Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genplusGC/genplusGC
+2025-10-10T17:15:26.2075091Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-10T17:15:26.2107550Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-10T17:15:26.2332981Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-10T17:15:26.2354204Z http.https://github.com/.extraheader
+2025-10-10T17:15:26.2366961Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-10-10T17:15:26.2397664Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-10T17:15:26.2756431Z Cleaning up orphan processes
