@@ -143,22 +143,8 @@ int MenuMain()
             menu = MENU_EXIT;
         }
         
-        /* Clear screen - dark blue so we know rendering works */
-        gxClearScreen((GXColor){20, 20, 60, 255});
-        
-        /* Draw a test rectangle to verify rendering */
-        gxDrawRectangle(100, 100, 440, 280, 255, (GXColor){80, 80, 120, 255});
-        
-        /* Test direct font rendering */
-        FONT_write("Direct Font Test", 20, 220, 150, 200, (GXColor){255, 255, 255, 255});
-        FONT_writeCenter("Centered Text", 18, 100, 540, 200, (GXColor){255, 255, 0, 255});
-        
-        /* Test what GuiText should be doing for title */
-        // Title is at position (0, 50) with ALIGN_CENTRE, ALIGN_TOP
-        // GetLeft() should return screen center X = 320
-        // GetTop() should return 50
-        // With maxWidth 640: x1 = 320-320=0, x2 = 320+320=640
-        FONT_writeCenter("Title Test", 28, 0, 640, 50, (GXColor){0, 255, 0, 255});
+        /* Clear screen */
+        gxClearScreen((GXColor){0, 0, 0, 255});
         
         /* Draw GUI */
         mainWindow.Draw();
