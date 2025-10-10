@@ -152,6 +152,13 @@ int MenuMain()
         FONT_write("Direct Font Test", 20, 220, 150, 200, (GXColor){255, 255, 255, 255});
         FONT_writeCenter("Centered Text", 18, 100, 540, 200, (GXColor){255, 255, 0, 255});
         
+        /* Test what GuiText should be doing for title */
+        // Title is at position (0, 50) with ALIGN_CENTRE, ALIGN_TOP
+        // GetLeft() should return screen center X = 320
+        // GetTop() should return 50
+        // With maxWidth 640: x1 = 320-320=0, x2 = 320+320=640
+        FONT_writeCenter("Title Test", 28, 0, 640, 50, (GXColor){0, 255, 0, 255});
+        
         /* Draw GUI */
         mainWindow.Draw();
         
