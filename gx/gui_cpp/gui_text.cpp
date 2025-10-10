@@ -14,6 +14,7 @@
 /* C interface to font system */
 extern "C" {
 #include "../gui/font.h"
+#include "../gx_video.h"
 }
 
 // Static preset variables
