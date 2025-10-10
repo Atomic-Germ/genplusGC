@@ -286,4 +286,40 @@ protected:
     std::vector<GuiElement*> _elements;
 };
 
+//! Interactive button widget
+class GuiButton : public GuiElement
+{
+public:
+    GuiButton(int w, int h);
+    ~GuiButton();
+    
+    void SetImage(GuiImage* i);
+    void SetImageOver(GuiImage* i);
+    void SetImageHold(GuiImage* i);
+    void SetImageClick(GuiImage* i);
+    void SetIcon(GuiImage* i);
+    void SetIconOver(GuiImage* i);
+    void SetLabel(GuiText* t);
+    void SetLabelOver(GuiText* t);
+    void SetSoundOver(GuiSound* s);
+    void SetSoundHold(GuiSound* s);
+    void SetSoundClick(GuiSound* s);
+    
+    void Draw();
+    void Update(GuiTrigger * t);
+    
+protected:
+    GuiImage * image;
+    GuiImage * imageOver;
+    GuiImage * imageHold;
+    GuiImage * imageClick;
+    GuiImage * icon;
+    GuiImage * iconOver;
+    GuiText * label;
+    GuiText * labelOver;
+    GuiSound * soundOver;
+    GuiSound * soundHold;
+    GuiSound * soundClick;
+};
+
 #endif // _GUICPP_H_
