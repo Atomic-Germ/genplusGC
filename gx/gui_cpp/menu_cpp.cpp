@@ -66,11 +66,6 @@ int MenuMain()
     mainWindow.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
     mainWindow.SetPosition(0, 0);
     
-    /* Background - solid color with stripe effect */
-    GuiImageData bgData(640, 480, (GXColor){50, 80, 120, 255});  // Blue background
-    GuiImage bgImg(&bgData);
-    mainWindow.Append(&bgImg);
-    
     /* Top banner */
     GuiImageData bannerTopData(Banner_top_png);
     GuiImage bannerTop(&bannerTopData);
@@ -217,6 +212,10 @@ int MenuMain()
         
         /* Clear screen and draw GUI */
         gxClearScreen((GXColor){0, 0, 0, 255});
+        
+        /* Draw blue background */
+        GUI_DrawRectangle(0, 0, 640, 480, (GXColor){50, 80, 120, 255}, 1);
+        
         mainWindow.Draw();
         gxSetScreen();
     }
