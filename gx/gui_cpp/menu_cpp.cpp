@@ -53,11 +53,13 @@ int MenuMain()
     GuiText titleText("Genesis Plus GX", 28, (GXColor){255, 255, 255, 255});
     titleText.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
     titleText.SetPosition(0, 50);
+    titleText.SetMaxWidth(640);  // Set width for center calculation
     
     /* Subtitle */
     GuiText subtitleText("C++ GUI System", 18, (GXColor){200, 200, 200, 255});
     subtitleText.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
     subtitleText.SetPosition(0, 90);
+    subtitleText.SetMaxWidth(640);  // Set width for center calculation
     
     /* Create trigger for A button */
     GuiTrigger trigA;
