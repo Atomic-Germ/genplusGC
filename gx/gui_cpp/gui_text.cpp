@@ -315,18 +315,3 @@ void GuiText::Draw()
     
     this->UpdateEffects();
 }
-    // This will call FreeTypeGX rendering functions to draw the text
-    // at the calculated position with proper alignment and effects
-    
-    // Placeholder structure for future rendering:
-    // 1. Calculate final position based on alignment
-    // 2. Apply effects (fade, scale, etc.)
-    // 3. Handle scrolling if enabled
-    // 4. Render wrapped lines if wrap is enabled
-    // 5. Call FreeTypeGX DrawText with calculated parameters
-    
-    (void)newSize;    // Suppress unused variable warning
-    (void)tempColor;  // Suppress unused variable warning
-    
-    this->UpdateEffects();
-}
