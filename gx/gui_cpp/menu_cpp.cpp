@@ -11,6 +11,7 @@
 
 extern "C" {
 #include "../gui/font.h"
+#include "../gx_video.h"
 #include <ogc/video.h>
 }
 
@@ -143,7 +144,7 @@ int MenuMain()
         gxClearScreen((GXColor){20, 20, 60, 255});
         
         /* Draw a test rectangle to verify rendering */
-        GUI_DrawRectangle(100, 100, 440, 280, 255, (GXColor){80, 80, 120, 255});
+        gxDrawRectangle(100, 100, 440, 280, 255, (GXColor){80, 80, 120, 255});
         
         /* Draw GUI */
         mainWindow.Draw();
