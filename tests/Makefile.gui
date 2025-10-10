@@ -41,7 +41,8 @@ GUI_SOURCES := \
     $(GUI_DIR)/gui_image.cpp \
     $(GUI_DIR)/gui_text.cpp \
     $(GUI_DIR)/gui_window.cpp \
-    $(GUI_DIR)/gui_button.cpp
+    $(GUI_DIR)/gui_button.cpp \
+    $(GUI_DIR)/menu_cpp.cpp
 
 # Object files
 BUILD_DIR := build/gui_test
