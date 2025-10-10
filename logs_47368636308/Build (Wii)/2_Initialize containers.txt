@@ -1,0 +1,57 @@
+﻿2025-10-10T17:15:32.5180434Z ##[group]Checking docker version
+2025-10-10T17:15:32.5193084Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2025-10-10T17:15:32.6707737Z '1.48'
+2025-10-10T17:15:32.6723054Z Docker daemon API version: '1.48'
+2025-10-10T17:15:32.6723939Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2025-10-10T17:15:32.6897688Z '1.48'
+2025-10-10T17:15:32.6911043Z Docker client API version: '1.48'
+2025-10-10T17:15:32.6916259Z ##[endgroup]
+2025-10-10T17:15:32.6920134Z ##[group]Clean up resources from previous jobs
+2025-10-10T17:15:32.6925887Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=37dfc0"
+2025-10-10T17:15:32.7199601Z ##[command]/usr/bin/docker network prune --force --filter "label=37dfc0"
+2025-10-10T17:15:32.7346875Z ##[endgroup]
+2025-10-10T17:15:32.7347827Z ##[group]Create local container network
+2025-10-10T17:15:32.7361911Z ##[command]/usr/bin/docker network create --label 37dfc0 github_network_a694672ea1f54503b082801ca1578910
+2025-10-10T17:15:32.7868898Z 7e03abfa0752fb6a59bdcc68757159e843ee1fefed9b73e173a977a07b21474e
+2025-10-10T17:15:32.7887702Z ##[endgroup]
+2025-10-10T17:15:32.7911475Z ##[group]Starting job container
+2025-10-10T17:15:32.7932238Z ##[command]/usr/bin/docker pull devkitpro/devkitppc:latest
+2025-10-10T17:15:33.7029934Z latest: Pulling from devkitpro/devkitppc
+2025-10-10T17:15:33.9607603Z 59e22667830b: Pulling fs layer
+2025-10-10T17:15:33.9608453Z 74701f26999d: Pulling fs layer
+2025-10-10T17:15:33.9609368Z ea5d3216df1f: Pulling fs layer
+2025-10-10T17:15:33.9610557Z ddfb5257c5ce: Pulling fs layer
+2025-10-10T17:15:33.9611713Z ddfb5257c5ce: Waiting
+2025-10-10T17:15:34.6372566Z ea5d3216df1f: Verifying Checksum
+2025-10-10T17:15:35.2375620Z ea5d3216df1f: Download complete
+2025-10-10T17:15:35.2376312Z 59e22667830b: Verifying Checksum
+2025-10-10T17:15:35.2376855Z 59e22667830b: Download complete
+2025-10-10T17:15:36.4125376Z 59e22667830b: Pull complete
+2025-10-10T17:15:40.4830054Z 74701f26999d: Download complete
+2025-10-10T17:15:40.6447303Z ddfb5257c5ce: Verifying Checksum
+2025-10-10T17:15:40.6448104Z ddfb5257c5ce: Download complete
+2025-10-10T17:15:49.0308265Z 74701f26999d: Pull complete
+2025-10-10T17:15:49.3806020Z ea5d3216df1f: Pull complete
+2025-10-10T17:15:57.1824121Z ddfb5257c5ce: Pull complete
+2025-10-10T17:15:57.1885155Z Digest: sha256:9652024feaa48256c2471840bdc829dc3c88171153f595f6be2afba678a47767
+2025-10-10T17:15:57.1902409Z Status: Downloaded newer image for devkitpro/devkitppc:latest
+2025-10-10T17:15:57.1916387Z docker.io/devkitpro/devkitppc:latest
+2025-10-10T17:15:57.1994394Z ##[command]/usr/bin/docker create --name 56780e405cd448fb9bede205e686c878_devkitprodevkitppclatest_7f06a3 --label 37dfc0 --workdir /__w/genplusGC/genplusGC --network github_network_a694672ea1f54503b082801ca1578910  -e "HOME=/github/home" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work":"/__w" -v "/home/runner/actions-runner/cached/externals":"/__e":ro -v "/home/runner/work/_temp":"/__w/_temp" -v "/home/runner/work/_actions":"/__w/_actions" -v "/opt/hostedtoolcache":"/__t" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" --entrypoint "tail" devkitpro/devkitppc:latest "-f" "/dev/null"
+2025-10-10T17:15:57.2288499Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.2313239Z ##[command]/usr/bin/docker start fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.5093669Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.5110905Z ##[command]/usr/bin/docker ps --all --filter id=fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2025-10-10T17:15:57.5224566Z fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 Up Less than a second
+2025-10-10T17:15:57.5243934Z ##[command]/usr/bin/docker inspect --format "{{range .Config.Env}}{{println .}}{{end}}" fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64
+2025-10-10T17:15:57.5366909Z HOME=/github/home
+2025-10-10T17:15:57.5367330Z GITHUB_ACTIONS=true
+2025-10-10T17:15:57.5367653Z CI=true
+2025-10-10T17:15:57.5368282Z PATH=/opt/devkitpro/tools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2025-10-10T17:15:57.5368997Z DEBIAN_FRONTEND=noninteractive
+2025-10-10T17:15:57.5369480Z LANG=en_US.UTF-8
+2025-10-10T17:15:57.5370025Z DEVKITPRO=/opt/devkitpro
+2025-10-10T17:15:57.5370405Z DEVKITPPC=/opt/devkitpro/devkitPPC
+2025-10-10T17:15:57.5370835Z DEVKITARM=/opt/devkitpro/devkitARM
+2025-10-10T17:15:57.5392756Z ##[endgroup]
+2025-10-10T17:15:57.5402160Z ##[group]Waiting for all services to be ready
+2025-10-10T17:15:57.5403841Z ##[endgroup]

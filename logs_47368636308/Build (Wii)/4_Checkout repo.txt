@@ -1,0 +1,80 @@
+﻿2025-10-10T17:16:01.4798561Z ##[group]Run actions/checkout@v4
+2025-10-10T17:16:01.4798837Z with:
+2025-10-10T17:16:01.4799004Z   fetch-depth: 0
+2025-10-10T17:16:01.4799205Z   repository: Atomic-Germ/genplusGC
+2025-10-10T17:16:01.4799570Z   token: ***
+2025-10-10T17:16:01.4799994Z   ssh-strict: true
+2025-10-10T17:16:01.4800181Z   ssh-user: git
+2025-10-10T17:16:01.4800370Z   persist-credentials: true
+2025-10-10T17:16:01.4800584Z   clean: true
+2025-10-10T17:16:01.4800764Z   sparse-checkout-cone-mode: true
+2025-10-10T17:16:01.4800987Z   fetch-tags: false
+2025-10-10T17:16:01.4801161Z   show-progress: true
+2025-10-10T17:16:01.4801341Z   lfs: false
+2025-10-10T17:16:01.4801495Z   submodules: false
+2025-10-10T17:16:01.4801681Z   set-safe-directory: true
+2025-10-10T17:16:01.4801876Z ##[endgroup]
+2025-10-10T17:16:01.4840716Z ##[command]/usr/bin/docker exec  fc938b1a69d4a39ffd4b32f92ed99eef16f2a1cbdce0fe3f76dbe26a16e41c64 sh -c "cat /etc/*release | grep ^ID"
+2025-10-10T17:16:01.6878076Z Syncing repository: Atomic-Germ/genplusGC
+2025-10-10T17:16:01.6879349Z ##[group]Getting Git version info
+2025-10-10T17:16:01.6879686Z Working directory is '/__w/genplusGC/genplusGC'
+2025-10-10T17:16:01.6880491Z [command]/usr/bin/git version
+2025-10-10T17:16:01.6880719Z git version 2.39.5
+2025-10-10T17:16:01.6899102Z ##[endgroup]
+2025-10-10T17:16:01.6913850Z Temporarily overriding HOME='/__w/_temp/5de6168a-4ee6-4a45-b5ef-759dd71248b4' before making global git config changes
+2025-10-10T17:16:01.6914568Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-10T17:16:01.6921022Z [command]/usr/bin/git config --global --add safe.directory /__w/genplusGC/genplusGC
+2025-10-10T17:16:01.6954541Z Deleting the contents of '/__w/genplusGC/genplusGC'
+2025-10-10T17:16:01.6958843Z ##[group]Initializing the repository
+2025-10-10T17:16:01.6962956Z [command]/usr/bin/git init /__w/genplusGC/genplusGC
+2025-10-10T17:16:01.6994496Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-10T17:16:01.6995476Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-10T17:16:01.6995979Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-10T17:16:01.6996307Z hint: 
+2025-10-10T17:16:01.6996719Z hint: 	git config --global init.defaultBranch <name>
+2025-10-10T17:16:01.6997019Z hint: 
+2025-10-10T17:16:01.6997280Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-10T17:16:01.6997724Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-10T17:16:01.6998071Z hint: 
+2025-10-10T17:16:01.6998241Z hint: 	git branch -m <name>
+2025-10-10T17:16:01.7002789Z Initialized empty Git repository in /__w/genplusGC/genplusGC/.git/
+2025-10-10T17:16:01.7014181Z [command]/usr/bin/git remote add origin https://github.com/Atomic-Germ/genplusGC
+2025-10-10T17:16:01.7043756Z ##[endgroup]
+2025-10-10T17:16:01.7044204Z ##[group]Disabling automatic garbage collection
+2025-10-10T17:16:01.7047460Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-10T17:16:01.7074482Z ##[endgroup]
+2025-10-10T17:16:01.7141115Z ##[group]Setting up auth
+2025-10-10T17:16:01.7146630Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-10T17:16:01.7148951Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-10T17:16:01.7323059Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-10T17:16:01.7351709Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-10T17:16:01.7553490Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-10T17:16:01.7587844Z ##[endgroup]
+2025-10-10T17:16:01.7588512Z ##[group]Fetching the repository
+2025-10-10T17:16:01.7597155Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-10-10T17:16:03.2507585Z From https://github.com/Atomic-Germ/genplusGC
+2025-10-10T17:16:03.2508344Z  * [new branch]      main                  -> origin/main
+2025-10-10T17:16:03.2513588Z  * [new branch]      phase1-cleanup        -> origin/phase1-cleanup
+2025-10-10T17:16:03.2515060Z  * [new branch]      phase2-testing        -> origin/phase2-testing
+2025-10-10T17:16:03.2518259Z  * [new branch]      phase3-gui-foundation -> origin/phase3-gui-foundation
+2025-10-10T17:16:03.2520638Z  * [new branch]      phase4-hardware-integration -> origin/phase4-hardware-integration
+2025-10-10T17:16:03.2522511Z  * [new branch]      refactor              -> origin/refactor
+2025-10-10T17:16:03.2523580Z  * [new tag]         baseline-pre-phase1   -> baseline-pre-phase1
+2025-10-10T17:16:03.2524790Z  * [new tag]         phase1-complete       -> phase1-complete
+2025-10-10T17:16:03.2525402Z  * [new tag]         phase2-complete       -> phase2-complete
+2025-10-10T17:16:03.2554052Z [command]/usr/bin/git branch --list --remote origin/phase4-hardware-integration
+2025-10-10T17:16:03.2576113Z   origin/phase4-hardware-integration
+2025-10-10T17:16:03.2585574Z [command]/usr/bin/git rev-parse refs/remotes/origin/phase4-hardware-integration
+2025-10-10T17:16:03.2604293Z 097e33e310906d1f5dd05bd406d8322d72a28a92
+2025-10-10T17:16:03.2619291Z ##[endgroup]
+2025-10-10T17:16:03.2619886Z ##[group]Determining the checkout info
+2025-10-10T17:16:03.2621284Z ##[endgroup]
+2025-10-10T17:16:03.2625249Z [command]/usr/bin/git sparse-checkout disable
+2025-10-10T17:16:03.2658606Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-10T17:16:03.2683927Z ##[group]Checking out the ref
+2025-10-10T17:16:03.2691724Z [command]/usr/bin/git checkout --progress --force -B phase4-hardware-integration refs/remotes/origin/phase4-hardware-integration
+2025-10-10T17:16:03.4612378Z Switched to a new branch 'phase4-hardware-integration'
+2025-10-10T17:16:03.4613482Z branch 'phase4-hardware-integration' set up to track 'origin/phase4-hardware-integration'.
+2025-10-10T17:16:03.4632751Z ##[endgroup]
+2025-10-10T17:16:03.4673355Z [command]/usr/bin/git log -1 --format=%H
+2025-10-10T17:16:03.4707379Z 097e33e310906d1f5dd05bd406d8322d72a28a92

@@ -1,0 +1,21 @@
+﻿2025-10-10T17:15:25.3528705Z ##[group]Run actions/upload-artifact@v4
+2025-10-10T17:15:25.3528982Z with:
+2025-10-10T17:15:25.3529148Z   name: test-results
+2025-10-10T17:15:25.3529343Z   path: tests/test-results.txt
+2025-10-10T17:15:25.3529545Z   retention-days: 5
+2025-10-10T17:15:25.3529720Z   if-no-files-found: warn
+2025-10-10T17:15:25.3529912Z   compression-level: 6
+2025-10-10T17:15:25.3530102Z   overwrite: false
+2025-10-10T17:15:25.3530289Z   include-hidden-files: false
+2025-10-10T17:15:25.3530491Z ##[endgroup]
+2025-10-10T17:15:25.5629680Z With the provided path, there will be 1 file uploaded
+2025-10-10T17:15:25.5635372Z Artifact name is valid!
+2025-10-10T17:15:25.5636522Z Root directory input is valid!
+2025-10-10T17:15:25.7395960Z Beginning upload of artifact content to blob storage
+2025-10-10T17:15:25.9271730Z Uploaded bytes 1024
+2025-10-10T17:15:25.9773376Z Finished uploading artifact content to blob storage!
+2025-10-10T17:15:25.9776868Z SHA256 digest of uploaded artifact zip is d11a93ed8b96c67fdea315775ac54c438f8e46ece1f995daaceaceddfebf8b26
+2025-10-10T17:15:25.9778420Z Finalizing artifact upload
+2025-10-10T17:15:26.0865766Z Artifact test-results.zip successfully finalized. Artifact ID 4239679910
+2025-10-10T17:15:26.0866877Z Artifact test-results has been successfully uploaded! Final size is 1024 bytes. Artifact ID is 4239679910
+2025-10-10T17:15:26.0873927Z Artifact download URL: https://github.com/Atomic-Germ/genplusGC/actions/runs/18413481361/artifacts/4239679910

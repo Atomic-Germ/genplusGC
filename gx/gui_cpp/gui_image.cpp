@@ -215,8 +215,7 @@ void GuiImage::Draw()
     if (!image || !this->IsVisible() || tile == 0)
         return;
 
-    float currScaleX = this->GetScaleX();
-    float currScaleY = this->GetScaleY();
+    float currScale = this->GetScale();
     int currLeft = this->GetLeft();
     int thisTop = this->GetTop();
 
@@ -227,14 +226,14 @@ void GuiImage::Draw()
         for (int i = 0; i < tile; ++i)
         {
             GUI_DrawImg(currLeft + width * i, thisTop, width, height, 
-                       image, imageangle, currScaleX, currScaleY, alpha);
+                       image, imageangle, currScale, currScale, alpha);
         }
     }
     else
     {
         // Single image
         GUI_DrawImg(currLeft, thisTop, width, height, image, 
-                   imageangle, currScaleX, currScaleY, this->GetAlpha());
+                   imageangle, currScale, currScale, this->GetAlpha());
     }
 
     // Stripe effect (for highlighting)
