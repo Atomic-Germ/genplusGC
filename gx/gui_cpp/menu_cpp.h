@@ -9,6 +9,10 @@
 #ifndef _MENU_CPP_H_
 #define _MENU_CPP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Menu return values */
 enum
 {
@@ -20,12 +24,17 @@ enum
     MENU_QUIT
 };
 
-/* Main C++ menu entry point */
-int ShowMainMenu();
+/* Main C++ menu entry point - callable from C */
+int ShowMainMenu(void);
 
-/* Individual menu functions */
-int MenuMain();
-int MenuLoadGame();
-int MenuSettings();
+#ifdef __cplusplus
+}
+
+/* Individual menu functions (C++ only) */
+int MenuMain(void);
+int MenuLoadGame(void);
+int MenuSettings(void);
+
+#endif
 
 #endif /* _MENU_CPP_H_ */

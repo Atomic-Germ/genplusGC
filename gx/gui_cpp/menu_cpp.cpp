@@ -28,9 +28,9 @@ static const u8 dummy_sound[] = {0};
  * ShowMainMenu
  * 
  * Main entry point for C++ menu system
- * Declared as extern "C" for C linkage
+ * Declared as extern "C" for C linkage (defined in header)
  */
-extern "C" int ShowMainMenu()
+int ShowMainMenu()
 {
     return MenuMain();
 }
