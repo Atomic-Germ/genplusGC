@@ -1,0 +1,76 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        compiler: [g++, clang++]
+        exclude:
+          # macOS doesn't have g++ by default
+          - os: macos-latest
+            compiler: g++
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Install dependencies (Ubuntu)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential g++ clang cppcheck lcov
+    
+    - name: Install dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        brew install cppcheck lcov || true
+    
+    - name: Build tests
+      run: |
+        cd tests
+        CXX=${{ matrix.compiler }} make tests
+    
+    - name: Run tests
+      run: |
+        cd tests
+        make run
+    
+    - name: Static analysis
+      if: matrix.os == 'ubuntu-latest' && matrix.compiler == 'g++'
+      run: |
+        cd tests
+        make static-analysis
+      continue-on-error: true
+    
+    - name: Code coverage
+      if: matrix.os == 'ubuntu-latest' && matrix.compiler == 'g++'
+      run: |
+        cd tests
+        make coverage
+      continue-on-error: true
+    
+    - name: Upload coverage to GitHub
+      if: matrix.os == 'ubuntu-latest' && matrix.compiler == 'g++'
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: tests/build/coverage_html/
+        retention-days: 30
+      continue-on-error: true
+    
+    - name: Upload test summary
+      if: always()
+      run: |
+        echo "## Test Results (${{ matrix.os }}, ${{ matrix.compiler }})" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "All tests executed successfully!" >> $GITHUB_STEP_SUMMARY

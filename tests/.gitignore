@@ -1,0 +1,19 @@
+# Build artifacts
+build/
+*.o
+*.d
+test_runner
+test-results.txt
+
+# Coverage reports
+*.gcov
+*.gcda
+*.gcno
+coverage.info
+coverage_html/
+
+# Editor files
+*.swp
+*~
+.vscode/
+.idea/
