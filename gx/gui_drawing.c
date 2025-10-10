@@ -7,12 +7,12 @@
  * gui_drawing.c - GUI rendering implementation
  ***************************************************************************/
 
-#include "shared.h"
+#include "../core/shared.h"
 #include "gui_drawing.h"
 #include <string.h>
+#include <malloc.h>
 
-/* External GX matrices from gx_video.c */
-extern Mtx view;
+/* External vmode from gx_video.c */
 extern GXRModeObj *vmode;
 
 /* 2D projection matrix for GUI */
