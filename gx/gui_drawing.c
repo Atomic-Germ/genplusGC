@@ -9,6 +9,7 @@
 
 #include <gccore.h>
 #include "gui_drawing.h"
+#include "gui/font.h"
 #include <string.h>
 #include <malloc.h>
 
@@ -35,6 +36,19 @@ void GUI_InitVideo(void)
     guMtxIdentity(GUImodelView2D);
     guMtxTransApply(GUImodelView2D, GUImodelView2D, 
                     vmode->fbWidth/2, vmode->efbHeight/2, -100);
+    
+    /* Setup vertex format for GUI rendering with 3D positions and float tex coords */
+    GX_ClearVtxDesc();
+    GX_SetVtxDesc(GX_VA_POS, GX_DIRECT);
+    GX_SetVtxDesc(GX_VA_CLR0, GX_DIRECT);
+    GX_SetVtxDesc(GX_VA_TEX0, GX_DIRECT);
+    
+    GX_SetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0);
+    GX_SetVtxAttrFmt(GX_VTXFMT0, GX_VA_CLR0, GX_CLR_RGBA, GX_RGBA8, 0);
+    GX_SetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0);
+    
+    /* Setup blending for GUI with alpha */
+    GX_SetBlendMode(GX_BM_BLEND, GX_BL_SRCALPHA, GX_BL_INVSRCALPHA, GX_LO_CLEAR);
 }
 
 /****************************************************************************
@@ -147,15 +161,13 @@ void GUI_DrawRectangle(f32 x, f32 y, f32 width, f32 height, GXColor color, u8 fi
 /****************************************************************************
  * GUI_DrawText
  *
- * Basic text drawing (placeholder - will enhance with FreeTypeGX later)
+ * Basic text drawing using bitmap font system
  ***************************************************************************/
 void GUI_DrawText(int x, int y, const char *text, int size, GXColor color)
 {
-    /* TODO: Implement with bitmap font or FreeTypeGX */
-    /* For now, this is a stub that will be enhanced in Phase 5 */
-    (void)x;
-    (void)y;
-    (void)text;
-    (void)size;
-    (void)color;
+    if (!text)
+        return;
+    
+    /* Use existing font system */
+    FONT_write((char*)text, size, x, y, 640, color);
 }

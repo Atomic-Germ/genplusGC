@@ -82,6 +82,7 @@ protected:
     const u8 * sound;
     s32 length;
     int type;
+    int voice;
     int volume;
     bool loop;
 };
