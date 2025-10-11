@@ -18,13 +18,18 @@
 1. ✅ GuiImageData solid color constructor removed - use GUI_DrawRectangle() instead
 2. ✅ Sound PCM linkage fixed - include generated headers instead of extern declarations
 3. ✅ Background rendering corrected - draw solid color before GUI elements
-4. ✅ All CI builds passing on GameCube and Wii
+4. ✅ GFX FIFO error fixed - GUI_InitVideo() now called before rendering
+5. ✅ All CI builds passing on GameCube and Wii
 
 **Changes Made:**
 - Removed attempted GuiImageData(w, h, color) constructor
 - Changed from `extern const u8 button_over_pcm[]` to `#include "button_over_pcm.h"`
 - Added `GUI_DrawRectangle()` call in render loop for background
 - Fixed menu_cpp.cpp to use Makefile-generated PCM headers
+- **Added `GUI_InitVideo()` call in MenuMain() to initialize 2D projection matrix**
+
+**GFX FIFO Fix Details:**
+The "GFX FIFO: Unknown Opcode" error in Dolphin was caused by the GX graphics state not being properly initialized for 2D GUI rendering. The `GUI_InitVideo()` function sets up the orthographic projection matrix and model-view transformations required for proper 2D rendering. Without this initialization, GX draw calls would desync the GPU causing the FIFO error.
 
 ---
 
