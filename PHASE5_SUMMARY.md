@@ -29,7 +29,10 @@
 - **Added `GUI_InitVideo()` call in MenuMain() to initialize 2D projection matrix**
 
 **GFX FIFO Fix Details:**
-The "GFX FIFO: Unknown Opcode" error in Dolphin was caused by the GX graphics state not being properly initialized for 2D GUI rendering. The `GUI_InitVideo()` function sets up the orthographic projection matrix and model-view transformations required for proper 2D rendering. Without this initialization, GX draw calls would desync the GPU causing the FIFO error.
+The "GFX FIFO: Unknown Opcode" error in Dolphin was caused by a vertex format mismatch in the GX rendering pipeline. The `GUI_DrawImg()` function uses `GX_Position3f32()` (3D float positions), but the vertex format (GX_VTXFMT0) was configured for 2D integer positions (GX_POS_XY with GX_S16). The fix adds proper vertex format setup in `GUI_InitVideo()`:
+- `GX_SetVtxAttrFmt(GX_VTXFMT0, GX_VA_POS, GX_POS_XYZ, GX_F32, 0)` - 3D float positions
+- `GX_SetVtxAttrFmt(GX_VTXFMT0, GX_VA_TEX0, GX_TEX_ST, GX_F32, 0)` - Float texture coords
+- `GX_SetBlendMode(GX_BM_BLEND, ...)` - Alpha blending for GUI transparency
 
 ---
 
