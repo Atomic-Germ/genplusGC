@@ -59,6 +59,9 @@ int MenuMain()
 {
     int menu = MENU_NONE;
     
+    /* Initialize GUI video system */
+    GUI_InitVideo();
+    
     /* Create main window */
     GuiWindow mainWindow(640, 480);
     mainWindow.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
